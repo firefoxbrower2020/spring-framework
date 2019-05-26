@@ -50,6 +50,9 @@ public class DefaultResourceLoader implements ResourceLoader {
 	@Nullable
 	private ClassLoader classLoader;
 
+	/**
+	 * ProtocolResolver集合
+	 */
 	private final Set<ProtocolResolver> protocolResolvers = new LinkedHashSet<>(4);
 
 	private final Map<Class<?>, Map<Resource, ?>> resourceCaches = new ConcurrentHashMap<>(4);
@@ -60,6 +63,8 @@ public class DefaultResourceLoader implements ResourceLoader {
 	 * <p>ClassLoader access will happen using the thread context class loader
 	 * at the time of this ResourceLoader's initialization.
 	 * @see java.lang.Thread#getContextClassLoader()
+	 *
+	 * 在使用不带参数的构造函数时，使用的ClassLoader为默认的ClassLoader（一般为Thread#getContextClassLoader()）
 	 */
 	public DefaultResourceLoader() {
 		this.classLoader = ClassUtils.getDefaultClassLoader();
@@ -69,6 +74,8 @@ public class DefaultResourceLoader implements ResourceLoader {
 	 * Create a new DefaultResourceLoader.
 	 * @param classLoader the ClassLoader to load class path resources with, or {@code null}
 	 * for using the thread context class loader at the time of actual resource access
+	 *
+	 * 在使用带参数的构造函数时，可以通过ClassUtils#getDefaultClassLoader()获取
 	 */
 	public DefaultResourceLoader(@Nullable ClassLoader classLoader) {
 		this.classLoader = classLoader;
@@ -98,6 +105,8 @@ public class DefaultResourceLoader implements ResourceLoader {
 	}
 
 	/**
+	 * 将自定义的ProtocolResolver实现类加入Spring体系
+	 *
 	 * Register the given resolver with this resource loader, allowing for
 	 * additional protocols to be handled.
 	 * <p>Any such resolver will be invoked ahead of this loader's standard
@@ -139,11 +148,12 @@ public class DefaultResourceLoader implements ResourceLoader {
 		this.resourceCaches.clear();
 	}
 
-
+	// 单元测试参见org.springframework.beans.factory.support.security.CallbacksSecurityTests#setUp
 	@Override
 	public Resource getResource(String location) {
 		Assert.notNull(location, "Location must not be null");
 
+		// 首先，通过ProtocolResolver来加载资源
 		for (ProtocolResolver protocolResolver : this.protocolResolvers) {
 			Resource resource = protocolResolver.resolve(location, this);
 			if (resource != null) {
@@ -151,12 +161,15 @@ public class DefaultResourceLoader implements ResourceLoader {
 			}
 		}
 
+		// 其次，以/开头，返回ClassPathContextResource类型的资源
 		if (location.startsWith("/")) {
 			return getResourceByPath(location);
 		}
+		// 再次，以classpath:开头，返回ClassPathResource类型的资源
 		else if (location.startsWith(CLASSPATH_URL_PREFIX)) {
 			return new ClassPathResource(location.substring(CLASSPATH_URL_PREFIX.length()), getClassLoader());
 		}
+		// 然后，判断是否为文件URL，是则返回FileUrlResource类型的资源，否则返回UrlResource类型的资源
 		else {
 			try {
 				// Try to parse the location as a URL...
@@ -164,6 +177,7 @@ public class DefaultResourceLoader implements ResourceLoader {
 				return (ResourceUtils.isFileURL(url) ? new FileUrlResource(url) : new UrlResource(url));
 			}
 			catch (MalformedURLException ex) {
+				// 最后，返回ClassPathContextResource类型的资源
 				// No URL -> resolve as resource path.
 				return getResourceByPath(location);
 			}

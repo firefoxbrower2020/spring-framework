@@ -281,6 +281,7 @@ public abstract class ScriptUtils {
 	private static String readScript(EncodedResource resource, @Nullable String commentPrefix,
 			@Nullable String separator, @Nullable String blockCommentEndDelimiter) throws IOException {
 
+		// LineNumberReader 行读取器（按行来读取）
 		LineNumberReader lnr = new LineNumberReader(resource.getReader());
 		try {
 			return readScript(lnr, commentPrefix, separator, blockCommentEndDelimiter);
@@ -305,6 +306,8 @@ public abstract class ScriptUtils {
 	 * @param blockCommentEndDelimiter the <em>end</em> block comment delimiter
 	 * @return a {@code String} containing the script lines
 	 * @throws IOException in case of I/O errors
+	 *
+	 * 从sql文件对应的LineNumberReader中一行一行读取内容，最后拼接成字符串
 	 */
 	public static String readScript(LineNumberReader lineNumberReader, @Nullable String lineCommentPrefix,
 			@Nullable String separator, @Nullable String blockCommentEndDelimiter) throws IOException {
@@ -312,6 +315,8 @@ public abstract class ScriptUtils {
 		String currentStatement = lineNumberReader.readLine();
 		StringBuilder scriptBuilder = new StringBuilder();
 		while (currentStatement != null) {
+			// 如果不是注释行（分单行和多行注释），则将该行内容拼接到要执行的script字符串中
+			// 否则，读取下一行再进行判断
 			if ((blockCommentEndDelimiter != null && currentStatement.contains(blockCommentEndDelimiter)) ||
 				(lineCommentPrefix != null && !currentStatement.startsWith(lineCommentPrefix))) {
 				if (scriptBuilder.length() > 0) {

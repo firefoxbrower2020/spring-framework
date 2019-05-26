@@ -42,6 +42,7 @@ import org.springframework.util.ResourceUtils;
 public interface ResourceLoader {
 
 	/** Pseudo URL prefix for loading from the class path: "classpath:". */
+	// CLASSPATH URL前缀。默认为：“classpath:”
 	String CLASSPATH_URL_PREFIX = ResourceUtils.CLASSPATH_URL_PREFIX;
 
 
@@ -63,6 +64,9 @@ public interface ResourceLoader {
 	 * @see #CLASSPATH_URL_PREFIX
 	 * @see Resource#exists()
 	 * @see Resource#getInputStream()
+	 *
+	 * Resource中最核心的方法为#getResource(String location)，它根据提供的location返回相应的Resource。
+	 * 而DefaultResourceLoader对该方法提供了核心实现
 	 */
 	Resource getResource(String location);
 

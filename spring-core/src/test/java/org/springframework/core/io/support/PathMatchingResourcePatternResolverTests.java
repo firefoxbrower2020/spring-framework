@@ -118,6 +118,14 @@ public class PathMatchingResourcePatternResolverTests {
 		assertTrue("Could not find aspectj_1_5_0.dtd in the root of the aspectjweaver jar", found);
 	}
 
+	@Test
+	public void determineRootDir() throws Exception {
+		String root1 = resolver.determineRootDir("classpath*:test/cc*/spring-*.xml");
+		System.out.println(root1); // classpath*:test/
+		String root2 = resolver.determineRootDir("classpath*:test/aa/spring-*.xml");
+		System.out.println(root2); // classpath*:test/aa/
+	}
+
 
 	private void assertProtocolAndFilenames(Resource[] resources, String protocol, String... filenames)
 			throws IOException {

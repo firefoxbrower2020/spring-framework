@@ -44,6 +44,11 @@ import org.springframework.core.io.ResourceLoader;
  * expected to be a path without placeholders in this case (e.g. "/beans.xml");
  * JAR files or classes directories can contain multiple files of the same name.
  *
+ * ResourceLoader的 Resource getResource(String location) 方法，每次只能根据location返回一个Resurce。
+ * 当需要加载多个资源时，我们除了多次调用#getResource(String location)方法外，别无他法。
+ * org.springframework.core.io.support.ResourcePatternResolver是ResourceLoader的扩展，
+ * 它支持根据指定的资源路径匹配模式每次返回多个Resource实例
+ *
  * @author Juergen Hoeller
  * @since 1.0.2
  * @see org.springframework.core.io.Resource

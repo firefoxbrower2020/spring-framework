@@ -50,8 +50,7 @@ import org.springframework.beans.factory.support.SecurityContextProvider;
 import org.springframework.beans.factory.support.security.support.ConstructorBean;
 import org.springframework.beans.factory.support.security.support.CustomCallbackBean;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
-import org.springframework.core.io.DefaultResourceLoader;
-import org.springframework.core.io.Resource;
+import org.springframework.core.io.*;
 
 import static org.junit.Assert.*;
 
@@ -316,6 +315,25 @@ public class CallbacksSecurityTests {
 		beanFactory = new DefaultListableBeanFactory();
 		new XmlBeanDefinitionReader(beanFactory).loadBeanDefinitions(config);
 		beanFactory.setSecurityContextProvider(provider);
+	}
+
+	// 测试DefaultResourceLoader 加载资源的具体策略
+	@Test
+	public void test1() throws Exception {
+		ResourceLoader resourceLoader = new FileSystemResourceLoader();
+		// 通过getResource方法获取Resource对象时，并不会去判断该资源是否存在；调用exists方法时才会判断
+
+		Resource fileResource1 = resourceLoader.getResource("D:/invest_log/invest_qidi.log");
+		System.out.println("fileResource1 is FileSystemResource:" + (fileResource1 instanceof FileSystemResource));
+
+		Resource fileResource2 = resourceLoader.getResource("/invest_log/invest_qidi.log");
+		System.out.println("fileResource2 is FileSystemResource:" + (fileResource2 instanceof ClassPathResource));
+
+		Resource urlResource1 = resourceLoader.getResource("file:/invest_log/invest_qidi.log");
+		System.out.println("urlResource1 is UrlResource:" + (urlResource1 instanceof UrlResource));
+
+		Resource urlResource2 = resourceLoader.getResource("http://www.baidu.com");
+		System.out.println("urlResource1 is UrlResource:" + (urlResource2 instanceof UrlResource));
 	}
 
 	@Test
