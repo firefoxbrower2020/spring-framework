@@ -43,6 +43,10 @@ public interface BeanDefinitionDocumentReader {
 	 * @param readerContext the current context of the reader
 	 * (includes the target registry and the resource being parsed)
 	 * @throws BeanDefinitionStoreException in case of parsing errors
+	 *
+	 * 从给定的Document对象中解析定义的BeanDefinition并将他们注册到注册表中
+	 * doc：待解析的Document对象
+	 * readerContext：解析器的当前上下文，包括目标注册表和被解析的资源。它是根据Resource来创建的
 	 */
 	void registerBeanDefinitions(Document doc, XmlReaderContext readerContext)
 			throws BeanDefinitionStoreException;
