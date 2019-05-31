@@ -29,6 +29,8 @@ import org.springframework.util.Assert;
  * {@link EntityResolver} implementation that delegates to a {@link BeansDtdResolver}
  * and a {@link PluggableSchemaResolver} for DTDs and XML schemas, respectively.
  *
+ * 实现EntityResolver接口，分别代理dtd的BeansDtdResolver和xml schemas的PluggableSchemaResolver
+ *
  * @author Rob Harrop
  * @author Juergen Hoeller
  * @author Rick Evans
@@ -57,10 +59,15 @@ public class DelegatingEntityResolver implements EntityResolver {
 	 * {@link ClassLoader}.
 	 * @param classLoader the ClassLoader to use for loading
 	 * (can be {@code null}) to use the default ClassLoader)
+	 *
+	 * 默认
 	 */
 	public DelegatingEntityResolver(@Nullable ClassLoader classLoader) {
 		this.dtdResolver = new BeansDtdResolver();
 		this.schemaResolver = new PluggableSchemaResolver(classLoader);
+		/*EntityResolver e = new PluggableSchemaResolver(classLoader);
+		System.out.println(e);
+		this.schemaResolver = e;*/
 	}
 
 	/**
@@ -68,6 +75,8 @@ public class DelegatingEntityResolver implements EntityResolver {
 	 * the given {@link EntityResolver EntityResolvers}.
 	 * @param dtdResolver the EntityResolver to resolve DTDs with
 	 * @param schemaResolver the EntityResolver to resolve XML schemas with
+	 *
+	 * 自定义
 	 */
 	public DelegatingEntityResolver(EntityResolver dtdResolver, EntityResolver schemaResolver) {
 		Assert.notNull(dtdResolver, "'dtdResolver' is required");
@@ -83,9 +92,11 @@ public class DelegatingEntityResolver implements EntityResolver {
 			throws SAXException, IOException {
 
 		if (systemId != null) {
+			// DTD模式
 			if (systemId.endsWith(DTD_SUFFIX)) {
 				return this.dtdResolver.resolveEntity(publicId, systemId);
 			}
+			// XSD模式
 			else if (systemId.endsWith(XSD_SUFFIX)) {
 				return this.schemaResolver.resolveEntity(publicId, systemId);
 			}

@@ -60,6 +60,8 @@ public class PluggableSchemaResolver implements EntityResolver {
 	/**
 	 * The location of the file that defines schema mappings.
 	 * Can be present in multiple JAR files.
+	 *
+	 * 默认 {@link #schemaMappingsLocation} 地址
 	 */
 	public static final String DEFAULT_SCHEMA_MAPPINGS_LOCATION = "META-INF/spring.schemas";
 
@@ -69,11 +71,14 @@ public class PluggableSchemaResolver implements EntityResolver {
 	@Nullable
 	private final ClassLoader classLoader;
 
+	/**
+	 * Schema文件地址
+	 */
 	private final String schemaMappingsLocation;
 
 	/** Stores the mapping of schema URL -> local schema path. */
 	@Nullable
-	private volatile Map<String, String> schemaMappings;
+	private volatile Map<String, String> schemaMappings; // namespaceURI与Schema文件地址的映射集合
 
 
 	/**
@@ -86,6 +91,7 @@ public class PluggableSchemaResolver implements EntityResolver {
 	public PluggableSchemaResolver(@Nullable ClassLoader classLoader) {
 		this.classLoader = classLoader;
 		this.schemaMappingsLocation = DEFAULT_SCHEMA_MAPPINGS_LOCATION;
+		// System.out.println("==========================" + schemaMappings);
 	}
 
 	/**
@@ -113,14 +119,17 @@ public class PluggableSchemaResolver implements EntityResolver {
 		}
 
 		if (systemId != null) {
+			// 获得Resource所在位置
 			String resourceLocation = getSchemaMappings().get(systemId);
 			if (resourceLocation == null && systemId.startsWith("https:")) {
 				// Retrieve canonical http schema mapping even for https declaration
 				resourceLocation = getSchemaMappings().get("http:" + systemId.substring(6));
 			}
 			if (resourceLocation != null) {
+				// 创建ClassPathResource
 				Resource resource = new ClassPathResource(resourceLocation, this.classLoader);
 				try {
+					// 创建InputSource对象，并设置publicId、systemId
 					InputSource source = new InputSource(resource.getInputStream());
 					source.setPublicId(publicId);
 					source.setSystemId(systemId);
@@ -143,25 +152,31 @@ public class PluggableSchemaResolver implements EntityResolver {
 
 	/**
 	 * Load the specified schema mappings lazily.
+	 * 获取一个映射表（systemId与其在本地的对照关系）
 	 */
 	private Map<String, String> getSchemaMappings() {
 		Map<String, String> schemaMappings = this.schemaMappings;
+		// 双重检查锁，实现schemaMappings单例
 		if (schemaMappings == null) {
 			synchronized (this) {
 				schemaMappings = this.schemaMappings;
 				if (schemaMappings == null) {
+					// System.out.println("开始加载schemaMappingsLocation");
 					if (logger.isTraceEnabled()) {
 						logger.trace("Loading schema mappings from [" + this.schemaMappingsLocation + "]");
 					}
 					try {
+						// 以Properties的方式，读取schemaMappingsLocation
 						Properties mappings =
 								PropertiesLoaderUtils.loadAllProperties(this.schemaMappingsLocation, this.classLoader);
 						if (logger.isTraceEnabled()) {
 							logger.trace("Loaded schema mappings: " + mappings);
 						}
+						// 将mappings初始化到schemaMappings中
 						schemaMappings = new ConcurrentHashMap<>(mappings.size());
 						CollectionUtils.mergePropertiesIntoMap(mappings, schemaMappings);
 						this.schemaMappings = schemaMappings;
+						// System.out.println("schemaMappingsLocation加载完成");
 					}
 					catch (IOException ex) {
 						throw new IllegalStateException(

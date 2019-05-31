@@ -23,6 +23,7 @@ import org.xml.sax.InputSource;
 
 /**
  * Strategy interface for loading an XML {@link Document}.
+ * 定义从资源文件加载到转换为Document的功能
  *
  * @author Rob Harrop
  * @since 2.0
@@ -41,6 +42,12 @@ public interface DocumentLoader {
 	 * @param namespaceAware {@code true} if support for XML namespaces is to be provided
 	 * @return the loaded {@link Document document}
 	 * @throws Exception if an error occurs
+	 *
+	 * inputSource 方法参数，加载Document的Resource资源
+	 * entityResolver 方法参数，解析文件的解析器
+	 * errorHalder 方法参数，处理加载Document对象的过程的错误
+	 * validationMode 方法参数，验证模式
+	 * namespaceAware 方法参数，命名空间支持。如果要提供对XML名称空间的支持，则需要值为true
 	 */
 	Document loadDocument(
 			InputSource inputSource, EntityResolver entityResolver,
