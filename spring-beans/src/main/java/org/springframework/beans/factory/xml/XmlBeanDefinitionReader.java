@@ -324,7 +324,7 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 	 */
 	@Override
 	public int loadBeanDefinitions(Resource resource) throws BeanDefinitionStoreException {
-		// 这里为什么需要将Resourc风专程EncodedResource呢？
+		// 这里为什么需要将Resource封装成EncodedResource呢？
 		// 主要是为了对Resource进行编码，保证内容读取的正确性
 		return loadBeanDefinitions(new EncodedResource(resource));
 	}
