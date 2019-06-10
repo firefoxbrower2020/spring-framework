@@ -580,6 +580,7 @@ public class BeanDefinitionParserDelegate {
 
 	/**
 	 * Apply the attributes of the given bean element to the given bean * definition.
+	 * 将创建好的GenericBeanDefinition实例当作参数，对bean标签的所有属性进行解析
 	 * @param ele bean declaration element
 	 * @param beanName bean name
 	 * @param containingBean containing bean definition
@@ -588,6 +589,7 @@ public class BeanDefinitionParserDelegate {
 	public AbstractBeanDefinition parseBeanDefinitionAttributes(Element ele, String beanName,
 			@Nullable BeanDefinition containingBean, AbstractBeanDefinition bd) {
 
+		// 解析scope属性
 		if (ele.hasAttribute(SINGLETON_ATTRIBUTE)) {
 			error("Old 1.x 'singleton' attribute in use - upgrade to 'scope' declaration", ele);
 		}
@@ -599,24 +601,29 @@ public class BeanDefinitionParserDelegate {
 			bd.setScope(containingBean.getScope());
 		}
 
+		// 解析abstract属性
 		if (ele.hasAttribute(ABSTRACT_ATTRIBUTE)) {
 			bd.setAbstract(TRUE_VALUE.equals(ele.getAttribute(ABSTRACT_ATTRIBUTE)));
 		}
 
+		// 解析lazy-init属性
 		String lazyInit = ele.getAttribute(LAZY_INIT_ATTRIBUTE);
 		if (isDefaultValue(lazyInit)) {
 			lazyInit = this.defaults.getLazyInit();
 		}
 		bd.setLazyInit(TRUE_VALUE.equals(lazyInit));
 
+		// 解析autowire属性
 		String autowire = ele.getAttribute(AUTOWIRE_ATTRIBUTE);
 		bd.setAutowireMode(getAutowireMode(autowire));
 
+		// 解析depends-on属性
 		if (ele.hasAttribute(DEPENDS_ON_ATTRIBUTE)) {
 			String dependsOn = ele.getAttribute(DEPENDS_ON_ATTRIBUTE);
 			bd.setDependsOn(StringUtils.tokenizeToStringArray(dependsOn, MULTI_VALUE_ATTRIBUTE_DELIMITERS));
 		}
 
+		// 解析autowire-candidate属性
 		String autowireCandidate = ele.getAttribute(AUTOWIRE_CANDIDATE_ATTRIBUTE);
 		if (isDefaultValue(autowireCandidate)) {
 			String candidatePattern = this.defaults.getAutowireCandidates();
@@ -629,10 +636,12 @@ public class BeanDefinitionParserDelegate {
 			bd.setAutowireCandidate(TRUE_VALUE.equals(autowireCandidate));
 		}
 
+		// 解析primary标签
 		if (ele.hasAttribute(PRIMARY_ATTRIBUTE)) {
 			bd.setPrimary(TRUE_VALUE.equals(ele.getAttribute(PRIMARY_ATTRIBUTE)));
 		}
 
+		// 解析init-method属性
 		if (ele.hasAttribute(INIT_METHOD_ATTRIBUTE)) {
 			String initMethodName = ele.getAttribute(INIT_METHOD_ATTRIBUTE);
 			bd.setInitMethodName(initMethodName);
@@ -642,6 +651,7 @@ public class BeanDefinitionParserDelegate {
 			bd.setEnforceInitMethod(false);
 		}
 
+		// 解析destroy-method属性
 		if (ele.hasAttribute(DESTROY_METHOD_ATTRIBUTE)) {
 			String destroyMethodName = ele.getAttribute(DESTROY_METHOD_ATTRIBUTE);
 			bd.setDestroyMethodName(destroyMethodName);
@@ -651,6 +661,7 @@ public class BeanDefinitionParserDelegate {
 			bd.setEnforceDestroyMethod(false);
 		}
 
+		// 解析factory-method属性
 		if (ele.hasAttribute(FACTORY_METHOD_ATTRIBUTE)) {
 			bd.setFactoryMethodName(ele.getAttribute(FACTORY_METHOD_ATTRIBUTE));
 		}
