@@ -168,6 +168,7 @@ public class ClassPathResource extends AbstractFileResolvingResource {
 	public InputStream getInputStream() throws IOException {
 		InputStream is;
 		if (this.clazz != null) {
+			// 参考链接（获取资源文件）：https://www.cnblogs.com/alwayswyy/p/6421267.html
 			// 读取当前类路径下的资源
 			// 举例：this.clazz为com.kittycoder.MyTest.class，
 			// path为资源名称mytest.sql
