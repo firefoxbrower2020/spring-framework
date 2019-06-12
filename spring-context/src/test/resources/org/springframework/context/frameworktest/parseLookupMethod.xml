@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "https://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	<bean id="display" class="org.springframework.context.frameworktest.Display">
+		<!-- 这个meta标签目前不知道有什么用 -->
+		<meta key="special-data" value="sprecial stragey"/>
+		<property name="displayId" value="111"/>
+		<lookup-method name="getCar" bean="hongqi"/>
+	</bean>
+
+	<bean id="hongqi" class="org.springframework.context.frameworktest.Hongqi"/>
+	<bean id="bmw" class="org.springframework.context.frameworktest.Bmw"/>
+
+</beans>
