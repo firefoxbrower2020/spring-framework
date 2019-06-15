@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="studentService" class="org.springframework.context.frameworktest.StudentService">
+		<constructor-arg index="0" value="chenssy"/>
+		<constructor-arg name="age" value="100"/>
+		<constructor-arg name="bookService" ref="bookService"/>
+	</bean>
+
+	<bean id="bookService" class="org.springframework.context.frameworktest.BookService"/>
+
+	<bean id="people" class="org.springframework.context.frameworktest.People" autowire="byName">
+		<!--<property name="teacher" ref="teacher"/>-->
+	</bean>
+	<bean id="teacher" class="org.springframework.context.frameworktest.Teacher"></bean>
+</beans>
