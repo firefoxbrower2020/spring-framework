@@ -242,10 +242,25 @@ configure(subprojects - project(":spring-build-src")) { subproject ->
 		from javadoc
 	}
 
+	// 编译带有源码的jar包 google search:gradle compile jar with source code
+	// https://discuss.gradle.org/t/build-jar-files-which-includes-class-and-java-files/13139/3
+	task sourcesBinJar(type: Jar, dependsOn: classes) {
+		duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+		classifier = "sources"
+		from sourceSets.main.allSource
+		from sourceSets.main.output
+	}
+
 	artifacts {
 		archives sourcesJar
 		archives javadocJar
 	}
+}
+
+// 解决命令行编译时报“GBK不可映射的字符”的问题
+// http://www.myexception.cn/software/922255.html
+tasks.withType(JavaCompile) {
+	options.encoding = "UTF-8"
 }
 
 configure(rootProject) {
