@@ -46,6 +46,9 @@ public class XmlReaderContext extends ReaderContext {
 
 	private final XmlBeanDefinitionReader reader;
 
+	/**
+	 * NamespaceHandler解析器
+	 */
 	private final NamespaceHandlerResolver namespaceHandlerResolver;
 
 
@@ -117,6 +120,7 @@ public class XmlReaderContext extends ReaderContext {
 
 	/**
 	 * Return the namespace resolver.
+	 * 获得命名空间的解析器
 	 * @see XmlBeanDefinitionReader#setNamespaceHandlerResolver
 	 */
 	public final NamespaceHandlerResolver getNamespaceHandlerResolver() {
