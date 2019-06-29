@@ -425,11 +425,15 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 			throws BeansException {
 
 		Object result = existingBean;
+		// 遍历BeanPostProcessor
 		for (BeanPostProcessor processor : getBeanPostProcessors()) {
+			// 处理
 			Object current = processor.postProcessAfterInitialization(result, beanName);
+			// 返回空，则返回result
 			if (current == null) {
 				return result;
 			}
+			// 修改result
 			result = current;
 		}
 		return result;
@@ -1914,6 +1918,9 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	 * registered BeanPostProcessors, giving them a chance to post-process the
 	 * object obtained from FactoryBeans (for example, to auto-proxy them).
 	 * @see #applyBeanPostProcessorsAfterInitialization
+	 *
+	 * 对所有的 {@code postProcessAfterInitialization} 进行回调注册BeanPostProcessors，
+	 * 让他们能够后期处理从FactoryBean中获取的对象
 	 */
 	@Override
 	protected Object postProcessObjectFromFactoryBean(Object object, String beanName) {
