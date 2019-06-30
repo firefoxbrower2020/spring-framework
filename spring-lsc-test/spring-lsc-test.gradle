@@ -1,0 +1,7 @@
+description = "Spring Lsc Test"
+
+dependencies {
+    compile(project(":spring-context"))
+    // 这个可以不用写，因为根路径下的build.gradle里面已经写过了
+    // testCompile("junit:junit:4.12")
+}
