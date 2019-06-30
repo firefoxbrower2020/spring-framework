@@ -21,6 +21,9 @@ include "spring-webflux"
 include "spring-websocket"
 include "spring-framework-bom"
 
+// 自己添加的测试模块
+include 'spring-lsc-test'
+
 // Exposes gradle buildSrc for IDE support
 include "buildSrc"
 rootProject.children.find{ it.name == "buildSrc" }.name = "spring-build-src"
@@ -28,4 +31,5 @@ rootProject.children.find{ it.name == "buildSrc" }.name = "spring-build-src"
 rootProject.name = "spring"
 rootProject.children.each {project ->
 	project.buildFileName = "${project.name}.gradle"
+	// println "最终名称为===" + project.buildFileName
 }
