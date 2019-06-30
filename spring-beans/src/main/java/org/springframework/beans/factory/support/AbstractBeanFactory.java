@@ -365,32 +365,42 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 					// It's a prototype -> create a new instance.
 					Object prototypeInstance = null;
 					try {
+						// <1> 加载前置处理
 						beforePrototypeCreation(beanName);
+						// <2> 创建Bean对象
 						prototypeInstance = createBean(beanName, mbd, args);
 					}
 					finally {
+						// <3> 加载后置处理
 						afterPrototypeCreation(beanName);
 					}
+					// <4> 从Bean实例中获取对象
 					bean = getObjectForBeanInstance(prototypeInstance, name, beanName, mbd);
 				}
 
 				else {
 					// 从指定的scope下创建bean
 					String scopeName = mbd.getScope();
+					// 获得scopeName对应的Scope对象
 					final Scope scope = this.scopes.get(scopeName);
 					if (scope == null) {
 						throw new IllegalStateException("No Scope registered for scope name '" + scopeName + "'");
 					}
 					try {
+						// 从指定的scope下创建bean
 						Object scopedInstance = scope.get(beanName, () -> {
+							// 加载前置处理
 							beforePrototypeCreation(beanName);
 							try {
+								// 创建Bean对象
 								return createBean(beanName, mbd, args);
 							}
 							finally {
+								// 加载后置处理
 								afterPrototypeCreation(beanName);
 							}
 						});
+						// 从Bean实例中获取对象
 						bean = getObjectForBeanInstance(scopedInstance, name, beanName, mbd);
 					}
 					catch (IllegalStateException ex) {
@@ -1084,16 +1094,16 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	@SuppressWarnings("unchecked")
 	protected void beforePrototypeCreation(String beanName) {
 		Object curVal = this.prototypesCurrentlyInCreation.get();
-		if (curVal == null) {
+		if (curVal == null) { // String
 			this.prototypesCurrentlyInCreation.set(beanName);
 		}
-		else if (curVal instanceof String) {
+		else if (curVal instanceof String) { // String=>Set
 			Set<String> beanNameSet = new HashSet<>(2);
 			beanNameSet.add((String) curVal);
 			beanNameSet.add(beanName);
 			this.prototypesCurrentlyInCreation.set(beanNameSet);
 		}
-		else {
+		else { // Set
 			Set<String> beanNameSet = (Set<String>) curVal;
 			beanNameSet.add(beanName);
 		}
@@ -1108,13 +1118,13 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	@SuppressWarnings("unchecked")
 	protected void afterPrototypeCreation(String beanName) {
 		Object curVal = this.prototypesCurrentlyInCreation.get();
-		if (curVal instanceof String) {
+		if (curVal instanceof String) { // String=>null
 			this.prototypesCurrentlyInCreation.remove();
 		}
-		else if (curVal instanceof Set) {
+		else if (curVal instanceof Set) { // Set
 			Set<String> beanNameSet = (Set<String>) curVal;
 			beanNameSet.remove(beanName);
-			if (beanNameSet.isEmpty()) {
+			if (beanNameSet.isEmpty()) { // Set=>null
 				this.prototypesCurrentlyInCreation.remove();
 			}
 		}

@@ -93,7 +93,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	 *
 	 * 存放的是早期的bean，对应关系也是bean name-->bean instance
 	 *
-	 * 它与 {@link #singletonFactories} 区别在于earlySingletonObjects中存放的bean不一定是完成
+	 * 它与 {@link #singletonObjects} 区别在于earlySingletonObjects中存放的bean不一定是完整的
 	 *
 	 * 从 {@link #getSingleton(String)} 方法中，我们可以了解，bean在创建过程中就已经加入到earlySingletonObjects中了
 	 * 所以当处于bean的创建过程中时，就可以通过getBean()方法获取
@@ -245,8 +245,12 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	 */
 	public Object getSingleton(String beanName, ObjectFactory<?> singletonFactory) {
 		Assert.notNull(beanName, "Bean name must not be null");
+		// 全局加锁
 		synchronized (this.singletonObjects) {
+			// <1> 从缓存中检查一遍
+			// 因为singleton模式其实就是复用已经创建的bean，所以这步必须检查
 			Object singletonObject = this.singletonObjects.get(beanName);
+			// 为空，开始加载过程
 			if (singletonObject == null) {
 				if (this.singletonsCurrentlyInDestruction) {
 					throw new BeanCreationNotAllowedException(beanName,
@@ -256,6 +260,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 				if (logger.isDebugEnabled()) {
 					logger.debug("Creating shared instance of singleton bean '" + beanName + "'");
 				}
+				// <2> 加载前置处理
 				beforeSingletonCreation(beanName);
 				boolean newSingleton = false;
 				boolean recordSuppressedExceptions = (this.suppressedExceptions == null);
@@ -263,6 +268,8 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 					this.suppressedExceptions = new LinkedHashSet<>();
 				}
 				try {
+					// <3> 初始化bean
+					// 这个过程其实是调用createBean()方法
 					singletonObject = singletonFactory.getObject();
 					newSingleton = true;
 				}
@@ -286,8 +293,10 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 					if (recordSuppressedExceptions) {
 						this.suppressedExceptions = null;
 					}
+					// <4> 后置处理
 					afterSingletonCreation(beanName);
 				}
+				// <5> 加入缓存中
 				if (newSingleton) {
 					addSingleton(beanName, singletonObject);
 				}
