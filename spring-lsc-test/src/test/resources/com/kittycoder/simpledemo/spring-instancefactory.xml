@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="instanceFactory" class="com.kittycoder.simpledemo.po.StudentInstanceFactory"></bean>
+	<bean id="student1" factory-bean="instanceFactory" factory-method="newInstance"></bean>
+
+	<bean id="student2" factory-bean="instanceFactory" factory-method="newInstance" lazy-init="true">
+		<constructor-arg name="id" value="2"/>
+		<constructor-arg name="name" value="李四"/>
+	</bean>
+</beans>
