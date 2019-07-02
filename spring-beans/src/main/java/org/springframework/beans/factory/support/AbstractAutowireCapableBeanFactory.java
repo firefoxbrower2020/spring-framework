@@ -1346,14 +1346,18 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		try {
 			Object beanInstance;
 			final BeanFactory parent = this;
+			// 安全模式
 			if (System.getSecurityManager() != null) {
 				beanInstance = AccessController.doPrivileged((PrivilegedAction<Object>) () ->
+						// 获得InstantiationStrategy对象，并使用它，创建Bean对象
 						getInstantiationStrategy().instantiate(mbd, beanName, parent),
 						getAccessControlContext());
 			}
 			else {
+				// 获得InstantiationStrategy对象，并使用它，创建Bean对象
 				beanInstance = getInstantiationStrategy().instantiate(mbd, beanName, parent);
 			}
+			// 封装BeanWrapperImpl，并完成初始化
 			BeanWrapper bw = new BeanWrapperImpl(beanInstance);
 			initBeanWrapper(bw);
 			return bw;

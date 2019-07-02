@@ -60,23 +60,28 @@ public class SimpleInstantiationStrategy implements InstantiationStrategy {
 	@Override
 	public Object instantiate(RootBeanDefinition bd, @Nullable String beanName, BeanFactory owner) {
 		// Don't override the class with CGLIB if no overrides.
+		// 没有覆盖，直接使用反射实例化即可
 		if (!bd.hasMethodOverrides()) {
 			Constructor<?> constructorToUse;
 			synchronized (bd.constructorArgumentLock) {
+				// 获得构造方法 constructorToUse
 				constructorToUse = (Constructor<?>) bd.resolvedConstructorOrFactoryMethod;
 				if (constructorToUse == null) {
 					final Class<?> clazz = bd.getBeanClass();
+					// 如果是接口，抛出BeanInstantiationException异常
 					if (clazz.isInterface()) {
 						throw new BeanInstantiationException(clazz, "Specified class is an interface");
 					}
 					try {
-						if (System.getSecurityManager() != null) {
+						// 从clazz中，获得构造方法
+						if (System.getSecurityManager() != null) { // 安全模式
 							constructorToUse = AccessController.doPrivileged(
 									(PrivilegedExceptionAction<Constructor<?>>) clazz::getDeclaredConstructor);
 						}
 						else {
 							constructorToUse = clazz.getDeclaredConstructor();
 						}
+						// 标记resolvedConstructorOrFactoryMethod属性
 						bd.resolvedConstructorOrFactoryMethod = constructorToUse;
 					}
 					catch (Throwable ex) {
@@ -84,10 +89,12 @@ public class SimpleInstantiationStrategy implements InstantiationStrategy {
 					}
 				}
 			}
+			// 通过BeanUtils直接使用构造器对象实例化Bean对象
 			return BeanUtils.instantiateClass(constructorToUse);
 		}
 		else {
 			// Must generate CGLIB subclass.
+			// 生成CGLIB创建的子类对象
 			return instantiateWithMethodInjection(bd, beanName, owner);
 		}
 	}
@@ -106,17 +113,24 @@ public class SimpleInstantiationStrategy implements InstantiationStrategy {
 	public Object instantiate(RootBeanDefinition bd, @Nullable String beanName, BeanFactory owner,
 			final Constructor<?> ctor, Object... args) {
 
+		// <x1> 没有覆盖，直接使用反射实例化即可
+		// 如果该bean没有配置lookup-method、replaced-method标签或者@Lookup注解，则直接通过反射的方式实例化Bean对象即可
 		if (!bd.hasMethodOverrides()) {
 			if (System.getSecurityManager() != null) {
+				// 设置构造方法，可访问
 				// use own privileged to change accessibility (when security is on)
 				AccessController.doPrivileged((PrivilegedAction<Object>) () -> {
 					ReflectionUtils.makeAccessible(ctor);
 					return null;
 				});
 			}
+			// 通过BeanUtils直接使用构造器对象实例化Bean对象
 			return BeanUtils.instantiateClass(ctor, args);
 		}
 		else {
+			// <x2> 生成CGLIB创建的子类对象
+			// 如果存在需要覆盖的方法或者动态替换掉方法时，则需要使用CGLIB进行动态代理，
+			// 因为可以在创建代理的同时将动态方法织入类中
 			return instantiateWithMethodInjection(bd, beanName, owner, ctor, args);
 		}
 	}
@@ -126,6 +140,9 @@ public class SimpleInstantiationStrategy implements InstantiationStrategy {
 	 * UnsupportedOperationException, if they can instantiate an object with
 	 * the Method Injection specified in the given RootBeanDefinition.
 	 * Instantiation should use the given constructor and parameters.
+	 *
+	 * 方法默认是没有实现的，具体过程由其子类
+	 * org.springframework.beans.factory.support.CglibSubclassingInstantiationStrategy来实现
 	 */
 	protected Object instantiateWithMethodInjection(RootBeanDefinition bd, @Nullable String beanName,
 			BeanFactory owner, @Nullable Constructor<?> ctor, Object... args) {
