@@ -463,7 +463,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 			}
 		}
 
-		// 添加<canonicalName, <dependentBeanName>>到dependenciesForBeanMap中
+		// 添加<dependentBeanName, <canonicalName>>到dependenciesForBeanMap中
 		synchronized (this.dependenciesForBeanMap) {
 			Set<String> dependenciesForBean =
 					this.dependenciesForBeanMap.computeIfAbsent(dependentBeanName, k -> new LinkedHashSet<>(8));
