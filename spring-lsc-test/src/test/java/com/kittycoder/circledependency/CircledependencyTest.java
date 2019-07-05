@@ -1,5 +1,7 @@
 package com.kittycoder.circledependency;
 
+import com.kittycoder.circledependency.po.Husband;
+import com.kittycoder.circledependency.po.Wife;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

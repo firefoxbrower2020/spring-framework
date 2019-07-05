@@ -1,4 +1,4 @@
-package com.kittycoder.circledependency;
+package com.kittycoder.circledependency.po;
 
 /**
  * Created by shucheng on 2019-7-4 下午 22:28
