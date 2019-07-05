@@ -46,6 +46,10 @@ public interface BeanClassLoaderAware extends Aware {
 	 * {@link InitializingBean#afterPropertiesSet()}
 	 * method or a custom init-method.
 	 * @param classLoader the owning class loader
+	 *
+	 * 将BeanClassLoader提供给bean实例回调
+	 * 在bean属性填充之后，初始化回调之前回调
+	 * 例如：InitializingBean的InitializingBean.afterPropertiesSet()方法或自定义init方法
 	 */
 	void setBeanClassLoader(ClassLoader classLoader);
 

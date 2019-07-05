@@ -70,6 +70,8 @@ public interface ApplicationContextAware extends Aware {
 	 * @throws ApplicationContextException in case of context initialization errors
 	 * @throws BeansException if thrown by application context methods
 	 * @see org.springframework.beans.factory.BeanInitializationException
+	 *
+	 * 设置此bean对象的ApplicationContext，通常，该方法用于初始化对象
 	 */
 	void setApplicationContext(ApplicationContext applicationContext) throws BeansException;
 
