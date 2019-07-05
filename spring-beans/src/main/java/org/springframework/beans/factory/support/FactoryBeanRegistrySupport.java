@@ -121,7 +121,7 @@ public abstract class FactoryBeanRegistrySupport extends DefaultSingletonBeanReg
 							// 单例Bean的前置处理
 							beforeSingletonCreation(beanName);
 							try {
-								// 对从FactoryBean获取的对象进行后处理
+								// 对从FactoryBean获取的对象进行后置处理
 								// 生成的对象将暴露给bean引用
 								object = postProcessObjectFromFactoryBean(object, beanName);
 							}
