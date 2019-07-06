@@ -1,6 +1,5 @@
 package com.kittycoder.autowiretest;
 
-import com.kittycoder.autowiretest.po.People1;
 import com.kittycoder.autowiretest.po.People2;
 import com.kittycoder.autowiretest.po.Teacher;
 import org.junit.Before;
@@ -10,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by shucheng on 2019-7-3 上午 8:21
- * 根据type注入
+ * 根据beanId注入
  */
 public class AutowireTest2 {
 
