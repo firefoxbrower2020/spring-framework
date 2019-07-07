@@ -26,4 +26,8 @@ package com.kittycoder;
  * 6. initializingbean
  * InitializingBeanTest 实现InitializingBean接口的方式，有侵入性
  * InitializingBeanTest2 在beans.xml中配置init-method方法（实际通过反射调用），无侵入性
+ *
+ * 7. disposablebean
+ * DisposableBeanTest 实现DisposableBean接口的方式，有侵入性
+ * DisposableBeanTest2 在beans.xml中配置destroy-method方法（实际通过反射调用），无侵入性
  **/
