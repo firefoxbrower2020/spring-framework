@@ -22,4 +22,8 @@ package com.kittycoder;
  * 5. beanpostprocessor
  * BeanPostProcessorTest 测试BeanPostProcessor接口，手动加到DefaultListableBeanFactory中
  * BeanPostProcessorTest2 测试BeanPostProcessor接口，使用ApplicationContext
+ *
+ * 6. initializingbean
+ * InitializingBeanTest 实现InitializingBean接口的方式，有侵入性
+ * InitializingBeanTest2 在beans.xml中配置init-method方法（实际通过反射调用），无侵入性
  **/
