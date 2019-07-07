@@ -18,4 +18,8 @@ package com.kittycoder;
  * 4. awaretest
  * AwareTest 测试Aware接口
  * GetContextTest 测试SpringContext工具类
+ *
+ * 5. beanpostprocessor
+ * BeanPostProcessorTest 测试BeanPostProcessor接口，手动加到DefaultListableBeanFactory中
+ * BeanPostProcessorTest2 测试BeanPostProcessor接口，使用ApplicationContext
  **/
