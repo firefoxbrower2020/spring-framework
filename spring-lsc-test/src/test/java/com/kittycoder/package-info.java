@@ -30,4 +30,7 @@ package com.kittycoder;
  * 7. disposablebean
  * DisposableBeanTest 实现DisposableBean接口的方式，有侵入性
  * DisposableBeanTest2 在beans.xml中配置destroy-method方法（实际通过反射调用），无侵入性
+ *
+ * 8. lifecycle
+ * LifeCycleBeanTest 测试Bean的生命周期
  **/
