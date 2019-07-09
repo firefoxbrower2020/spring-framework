@@ -33,4 +33,7 @@ package com.kittycoder;
  *
  * 8. lifecycle
  * LifeCycleBeanTest 测试Bean的生命周期
+ *
+ * 9. beanfactorypostprocessor
+ * BeanFactoryPostProcessorTest 测试BeanFactoryPostProcessor
  **/
