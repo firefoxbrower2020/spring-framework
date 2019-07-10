@@ -39,4 +39,7 @@ package com.kittycoder;
  *
  * 10. propertyplaceholderconfig
  * PropertyPlaceholderConfigTest 测试PropertyPlaceholderConfigurer的应用，模拟不同环境的切换（test,prod,dev）
+ *
+ * 11. propertyoverrideconfig
+ * PropertyOverrideConfigTest 测试PropertyOverrideConfigurer的使用
  **/
