@@ -36,4 +36,7 @@ package com.kittycoder;
  *
  * 9. beanfactorypostprocessor
  * BeanFactoryPostProcessorTest 测试BeanFactoryPostProcessor
+ *
+ * 10. propertyplaceholderconfig
+ * PropertyPlaceholderConfigTest 测试PropertyPlaceholderConfigurer的应用，模拟不同环境的切换（test,prod,dev）
  **/
