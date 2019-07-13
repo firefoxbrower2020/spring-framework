@@ -1864,12 +1864,17 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	private Object convertForProperty(
 			@Nullable Object value, String propertyName, BeanWrapper bw, TypeConverter converter) {
 
+		// 若TypeConvertor为BeanWrapperImpl类型，则使用BeanWrapperImpl来进行类型转换
+		// 这里主要是因为BeanWrapperImpl实现了PropertyEditorRegistry接口
 		if (converter instanceof BeanWrapperImpl) {
 			return ((BeanWrapperImpl) converter).convertForProperty(value, propertyName);
 		}
 		else {
+			// 获得属性对应的PropertyDescriptor对象
 			PropertyDescriptor pd = bw.getPropertyDescriptor(propertyName);
+			// 获得属性对应的setting MethodParameter对象
 			MethodParameter methodParam = BeanUtils.getWriteMethodParameter(pd);
+			// 执行转换
 			return converter.convertIfNecessary(value, pd.getPropertyType(), methodParam);
 		}
 	}

@@ -96,6 +96,8 @@ public interface GenericConverter {
 			return this.targetType;
 		}
 
+		// 这边重写equals方法的原因：getRegisteredConverter中，需要从key为GenericConverter中Map中取值，
+		// 只要里面两个属性相同，就视作相同的key，不管指向的是否为同一个引用
 		@Override
 		public boolean equals(@Nullable Object other) {
 			if (this == other) {
