@@ -42,4 +42,7 @@ package com.kittycoder;
  *
  * 11. propertyoverrideconfig
  * PropertyOverrideConfigTest 测试PropertyOverrideConfigurer的使用
+ *
+ * 12. customtypeconverter
+ * CustomTypeConverterTest 测试自定义类型转换器
  **/
