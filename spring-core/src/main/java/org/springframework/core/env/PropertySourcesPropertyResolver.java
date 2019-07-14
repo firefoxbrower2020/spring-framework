@@ -19,6 +19,8 @@ package org.springframework.core.env;
 import org.springframework.lang.Nullable;
 
 /**
+ * PropertyResolver的实现者，它对一组PropertySources提供属性解析服务
+ *
  * {@link PropertyResolver} implementation that resolves property values against
  * an underlying set of {@link PropertySources}.
  *
@@ -74,20 +76,30 @@ public class PropertySourcesPropertyResolver extends AbstractPropertyResolver {
 		return getProperty(key, String.class, false);
 	}
 
+	/**
+	 * key：获取的key
+	 * targetValueType：目标value的类型
+	 * resolveNestedPlaceholders：是否解析嵌套占位符
+	 */
 	@Nullable
 	protected <T> T getProperty(String key, Class<T> targetValueType, boolean resolveNestedPlaceholders) {
 		if (this.propertySources != null) {
+			// 遍历propertySources数组
 			for (PropertySource<?> propertySource : this.propertySources) {
 				if (logger.isTraceEnabled()) {
 					logger.trace("Searching for key '" + key + "' in PropertySource '" +
 							propertySource.getName() + "'");
 				}
+				// 获得key对应的value值
 				Object value = propertySource.getProperty(key);
 				if (value != null) {
+					// 如果resolveNestedPlaceholders为true，则解析占位符
 					if (resolveNestedPlaceholders && value instanceof String) {
 						value = resolveNestedPlaceholders((String) value);
 					}
+					// 如果找到key对应的值，则打印日志
 					logKeyFound(key, propertySource, value);
+					// value的类型转换
 					return convertValueIfNecessary(value, targetValueType);
 				}
 			}

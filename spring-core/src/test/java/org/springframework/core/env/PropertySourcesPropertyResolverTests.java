@@ -367,4 +367,21 @@ public class PropertySourcesPropertyResolverTests {
 		}
 	}
 
+	// PropertyResolver的简单使用
+	// 模仿resolveNestedPropertyPlaceholders写的
+	@Test
+	public void testPropertyResolver() {
+		MutablePropertySources ps = new MutablePropertySources();
+		ps.addFirst(new MockPropertySource()
+				.withProperty("name", "chenssy")
+				.withProperty("ph1", "name")
+		);
+		PropertyResolver propertyResolver = new PropertySourcesPropertyResolver(ps);
+		System.out.println(propertyResolver.getProperty("name"));
+		System.out.println(propertyResolver.getProperty("name", "chenssy"));
+		System.out.println(propertyResolver.resolvePlaceholders("my name is ${name}"));
+		// 嵌套占位符的解析 先去掉里层，得到${name}；然后解析得到chenssy
+		System.out.println(propertyResolver.resolvePlaceholders("nested value is ${${ph1}}"));
+	}
+
 }

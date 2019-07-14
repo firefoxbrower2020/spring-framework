@@ -138,7 +138,7 @@ public class PropertyPlaceholderHelper {
 			// 获取后缀“}”的索引位置
 			int endIndex = findPlaceholderEndIndex(result, startIndex);
 			if (endIndex != -1) {
-				// 街区“${”和“}”中间的内容，这也就是我们在配置文件中对应的值
+				// 截取“${”和“}”中间的内容，这也就是我们在配置文件中对应的值
 				String placeholder = result.substring(startIndex + this.placeholderPrefix.length(), endIndex);
 				String originalPlaceholder = placeholder;
 				if (visitedPlaceholders == null) {
