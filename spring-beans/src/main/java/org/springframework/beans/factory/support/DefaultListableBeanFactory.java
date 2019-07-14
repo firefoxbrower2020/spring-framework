@@ -83,6 +83,9 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * DefaultListableBeanFactory，ConfigurableListableBeanFactory（其实就是BeanFactory）和
+ * BeanDefinitionRegistry接口的默认实现：一个基于BeanDefinition元数据的完整bean工厂
+ *
  * Spring's default implementation of the {@link ConfigurableListableBeanFactory}
  * and {@link BeanDefinitionRegistry} interfaces: a full-fledged bean factory
  * based on bean definition metadata, extensible through post-processors.
@@ -158,6 +161,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 	/** Map from dependency type to corresponding autowired value. */
 	private final Map<Class<?>, Object> resolvableDependencies = new ConcurrentHashMap<>(16);
 
+	// 注册表，由BeanDefinition的标识（beanName）与其实例组成
 	/** Map of bean definition objects, keyed by bean name. */
 	private final Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>(256);
 
@@ -167,6 +171,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 	/** Map of singleton-only bean names, keyed by dependency type. */
 	private final Map<Class<?>, String[]> singletonBeanNamesByType = new ConcurrentHashMap<>(64);
 
+	// 标识（beanName）集合
 	/** List of bean definition names, in registration order. */
 	private volatile List<String> beanDefinitionNames = new ArrayList<>(256);
 
@@ -938,7 +943,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 					updatedDefinitions.addAll(this.beanDefinitionNames);
 					updatedDefinitions.add(beanName);
 					this.beanDefinitionNames = updatedDefinitions;
-					// 从manualSingletonName中移除beanName
+					// 从manualSingletonNames中移除beanName
 					removeManualSingletonName(beanName);
 					// 上面这行代码之前的写法
 					/*if (this.manualSingletonNames.contains(beanName)) {
@@ -954,7 +959,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 				this.beanDefinitionMap.put(beanName, beanDefinition);
 				// 将beanName添加到beanDefinitionNames中
 				this.beanDefinitionNames.add(beanName);
-				// 从manualSingletonName中移除beanName
+				// 从manualSingletonNames中移除beanName
 				removeManualSingletonName(beanName);
 				// 上面这行代码之前的写法
 				// this.manualSingletonNames.remove(beanName);
