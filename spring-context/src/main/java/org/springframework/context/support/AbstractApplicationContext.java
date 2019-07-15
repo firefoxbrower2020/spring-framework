@@ -1292,8 +1292,11 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	// Implementation of MessageSource interface
 	//---------------------------------------------------------------------
 
+	// 实现getMessage()
 	@Override
 	public String getMessage(String code, @Nullable Object[] args, @Nullable String defaultMessage, Locale locale) {
+		// 委托给messageSource实现
+		// 真正实现逻辑，是在AbstractMessageSource中
 		return getMessageSource().getMessage(code, args, defaultMessage, locale);
 	}
 
