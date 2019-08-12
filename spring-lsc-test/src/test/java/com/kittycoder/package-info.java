@@ -45,4 +45,7 @@ package com.kittycoder;
  *
  * 12. customtypeconverter
  * CustomTypeConverterTest 测试自定义类型转换器
+ *
+ * 13. processenginefactorybean
+ * ProcessEngineFactoryBeanTest 简单模拟Activiti6整合Spring时初始化流程引擎的过程
  **/
