@@ -22,15 +22,7 @@ import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.lang.Nullable;
 
 /**
- * Common interface for classes that can access named properties
- * (such as bean properties of an object or fields in an object)
- * Serves as base interface for {@link BeanWrapper}.
- *
- * @author Juergen Hoeller
- * @since 1.1
- * @see BeanWrapper
- * @see PropertyAccessorFactory#forBeanPropertyAccess
- * @see PropertyAccessorFactory#forDirectFieldAccess
+ 获取和设置属性(例如对象bean的属性，对象的Field)的通用接口，它用来作为BeanWrapper的基础接口
  */
 public interface PropertyAccessor {
 

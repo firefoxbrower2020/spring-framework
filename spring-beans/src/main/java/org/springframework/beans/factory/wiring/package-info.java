@@ -1,6 +1,8 @@
 /**
  * Mechanism to determine bean wiring metadata from a bean instance.
  * Foundation for aspect-driven bean configuration.
+ * 
+ * 一种决定一个bean实例的元数据的机制
  */
 @NonNullApi
 @NonNullFields

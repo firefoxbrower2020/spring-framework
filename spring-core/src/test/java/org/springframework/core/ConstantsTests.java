@@ -28,6 +28,7 @@ import static org.junit.Assert.*;
  * @author Juergen Hoeller
  * @author Rick Evans
  * @since 28.04.2003
+ * 测试常量类 
  */
 public class ConstantsTests {
 

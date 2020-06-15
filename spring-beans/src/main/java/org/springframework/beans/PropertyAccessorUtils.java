@@ -19,8 +19,7 @@ package org.springframework.beans;
 import org.springframework.lang.Nullable;
 
 /**
- * Utility methods for classes that perform bean property access
- * according to the {@link PropertyAccessor} interface.
+ PropertyAccessorUtils：工具方法或者工具类，根据PropertyAccessor 获取bean属性。
  *
  * @author Juergen Hoeller
  * @since 1.2.6

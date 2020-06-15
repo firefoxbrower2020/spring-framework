@@ -25,17 +25,9 @@ import org.springframework.core.type.classreading.MetadataReader;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
-/**
- * Extension of the {@link org.springframework.beans.factory.support.GenericBeanDefinition}
- * class, based on an ASM ClassReader, with support for annotation metadata exposed
- * through the {@link AnnotatedBeanDefinition} interface.
- *
- * <p>This class does <i>not</i> load the bean {@code Class} early.
- * It rather retrieves all relevant metadata from the ".class" file itself,
- * parsed with the ASM ClassReader. It is functionally equivalent to
- * {@link AnnotatedGenericBeanDefinition#AnnotatedGenericBeanDefinition(AnnotationMetadata)}
- * but distinguishes by type beans that have been <em>scanned</em> vs those that have
- * been otherwise registered or detected by other means.
+/** 注解bean的实现类
+ * ScannedGenericBeanDefinition:
+ * 基于asm的类解析器，是GenericBeanDefinition类的扩展，支持注解元数据，这种支持通过AnnotatedBeanDefinition接口实现
  *
  * @author Juergen Hoeller
  * @author Chris Beams

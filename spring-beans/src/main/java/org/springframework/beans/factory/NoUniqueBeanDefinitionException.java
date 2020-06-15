@@ -15,17 +15,14 @@
  */
 
 package org.springframework.beans.factory;
-
 import java.util.Arrays;
 import java.util.Collection;
-
 import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
- * Exception thrown when a {@code BeanFactory} is asked for a bean instance for which
- * multiple matching candidates have been found when only one matching bean was expected.
+ * NoUniqueBeanDefinitionException：返回多个bean definition异常.
  *
  * @author Juergen Hoeller
  * @since 3.2.1

@@ -19,39 +19,13 @@ package org.springframework.beans.factory;
 import org.springframework.lang.Nullable;
 
 /**
- * Interface to be implemented by objects used within a {@link BeanFactory} which
- * are themselves factories for individual objects. If a bean implements this
- * interface, it is used as a factory for an object to expose, not directly as a
- * bean instance that will be exposed itself.
- *
- * <p><b>NB: A bean that implements this interface cannot be used as a normal bean.</b>
- * A FactoryBean is defined in a bean style, but the object exposed for bean
- * references ({@link #getObject()}) is always the object that it creates.
- *
- * <p>FactoryBeans can support singletons and prototypes, and can either create
- * objects lazily on demand or eagerly on startup. The {@link SmartFactoryBean}
- * interface allows for exposing more fine-grained behavioral metadata.
- *
- * <p>This interface is heavily used within the framework itself, for example for
- * the AOP {@link org.springframework.aop.framework.ProxyFactoryBean} or the
- * {@link org.springframework.jndi.JndiObjectFactoryBean}. It can be used for
- * custom components as well; however, this is only common for infrastructure code.
- *
- * <p><b>{@code FactoryBean} is a programmatic contract. Implementations are not
- * supposed to rely on annotation-driven injection or other reflective facilities.</b>
- * {@link #getObjectType()} {@link #getObject()} invocations may arrive early in
- * the bootstrap process, even ahead of any post-processor setup. If you need access
- * other beans, implement {@link BeanFactoryAware} and obtain them programmatically.
- *
- * <p>Finally, FactoryBean objects participate in the containing BeanFactory's
- * synchronization of bean creation. There is usually no need for internal
- * synchronization other than for purposes of lazy initialization within the
- * FactoryBean itself (or the like).
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @since 08.03.2003
- * @param <T> the bean type
+ FactoryBean<T>：实现了此接口的bean不能看做一个通常意义上的bean，一个FactoryBean虽然以bean的形式来定义，
+ 但它暴露的对象(getObject())通常是它创建的对象。
+
+ T getObject() throws Exception;
+ Class<?> getObjectType();
+ boolean isSingleton();
+ 
  * @see org.springframework.beans.factory.BeanFactory
  * @see org.springframework.aop.framework.ProxyFactoryBean
  * @see org.springframework.jndi.JndiObjectFactoryBean

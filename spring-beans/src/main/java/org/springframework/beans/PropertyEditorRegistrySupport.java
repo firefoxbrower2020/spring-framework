@@ -78,9 +78,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
- * Base implementation of the {@link PropertyEditorRegistry} interface.
- * Provides management of default editors and custom editors.
- * Mainly serves as base class for {@link BeanWrapperImpl}.
+ PropertyEditorRegistrySupport：PropertyEditorRegistry接口的基本实现类。
  *
  * @author Juergen Hoeller
  * @author Rob Harrop

@@ -21,8 +21,7 @@ import java.beans.PropertyChangeEvent;
 import org.springframework.lang.Nullable;
 
 /**
- * Superclass for exceptions related to a property access,
- * such as type mismatch or invocation target exception.
+ PropertyAccessException：获取属性相关的异常超类，例如类型不匹配或者目标调用异常
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

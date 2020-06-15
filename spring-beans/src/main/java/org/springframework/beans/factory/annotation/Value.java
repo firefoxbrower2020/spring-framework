@@ -23,8 +23,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation at the field or method/constructor parameter level
- * that indicates a default value expression for the affected argument.
+ * public @interface Value：用于注入SpEL表达式，可以放置在字段方法或参数上
  *
  * <p>Typically used for expression-driven dependency injection. Also supported
  * for dynamic resolution of handler method parameters, e.g. in Spring MVC.

@@ -22,11 +22,7 @@ import java.lang.reflect.Method;
 import org.springframework.lang.Nullable;
 
 /**
- * Exception thrown when instantiation of a bean failed.
- * Carries the offending bean class.
- *
- * @author Juergen Hoeller
- * @since 1.2.8
+ bean初始化失败时抛出的异常
  */
 @SuppressWarnings("serial")
 public class BeanInstantiationException extends FatalBeanException {

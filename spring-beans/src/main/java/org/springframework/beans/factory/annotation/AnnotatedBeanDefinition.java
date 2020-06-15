@@ -21,10 +21,10 @@ import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.core.type.MethodMetadata;
 import org.springframework.lang.Nullable;
 
-/**
- * Extended {@link org.springframework.beans.factory.config.BeanDefinition}
- * interface that exposes {@link org.springframework.core.type.AnnotationMetadata}
- * about its bean class - without requiring the class to be loaded yet.
+/** 注解bean的实现类
+ *  该接口继承了BeanDefinition，提供了一个getMetadata()方法来获取该bean definition的注解元数据。
+ *
+ * 其中，AnnotationMetadata定义了访问特定类的注解的抽象接口，它不需要加载该类即可访问。
  *
  * @author Juergen Hoeller
  * @since 2.5
@@ -41,9 +41,12 @@ public interface AnnotatedBeanDefinition extends BeanDefinition {
 	AnnotationMetadata getMetadata();
 
 	/**
-	 * Obtain metadata for this bean definition's factory method, if any.
-	 * @return the factory method metadata, or {@code null} if none
-	 * @since 4.1.1
+	 * ClassMetadata定义了一个特定类的抽象元数据，不需要加载此类。主要方法如下：
+	 * String getClassName()返回该类的名称。boolean isInterface()返回该类是否是接口。boolean isAbstract()返回该类是否为抽象类。
+	 * boolean isConcrete()返回该类是否为具体类。boolean isFinal()返回该类是否为final类boolean hasSuperClass()返回该类是否有父类
+	 * String getSuperClassName()返回父类的名称，没有的话返回null.
+	 * String[] getInterfaceNames()返回继承的接口数组，如果没有，返回空.
+	 * String[] getMemberClassNames()返回引用的类的名称。
 	 */
 	@Nullable
 	MethodMetadata getFactoryMethodMetadata();

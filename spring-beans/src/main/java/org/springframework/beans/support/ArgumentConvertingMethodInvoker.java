@@ -29,15 +29,8 @@ import org.springframework.util.MethodInvoker;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * Subclass of {@link MethodInvoker} that tries to convert the given
- * arguments for the actual target method via a {@link TypeConverter}.
- *
- * <p>Supports flexible argument conversions, in particular for
- * invoking a specific overloaded method.
- *
- * @author Juergen Hoeller
- * @since 1.1
- * @see org.springframework.beans.BeanWrapperImpl#convertIfNecessary
+ ArgumentConvertingMethodInvoker：MethodInvoker的子类，
+ 通过TypeConverter将真实目标方法的指定参数进行转换。 
  */
 public class ArgumentConvertingMethodInvoker extends MethodInvoker {
 

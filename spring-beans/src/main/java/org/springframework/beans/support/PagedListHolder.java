@@ -26,18 +26,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * PagedListHolder is a simple state holder for handling lists of objects,
- * separating them into pages. Page numbering starts with 0.
- *
- * <p>This is mainly targeted at usage in web UIs. Typically, an instance will be
- * instantiated with a list of beans, put into the session, and exported as model.
- * The properties can all be set/get programmatically, but the most common way will
- * be data binding, i.e. populating the bean from request parameters. The getters
- * will mainly be used by the view.
- *
- * <p>Supports sorting the underlying list via a {@link SortDefinition} implementation,
- * available as property "sort". By default, a {@link MutableSortDefinition} instance
- * will be used, toggling the ascending value on setting the same property again.
+ PagedListHolder<E>：PagedListHolder是一个简单的状态保持，它处理一组对象，将它们分页。 
  *
  * <p>The data binding names have to be called "pageSize" and "sort.ascending",
  * as expected by BeanWrapper. Note that the names and the nesting syntax match

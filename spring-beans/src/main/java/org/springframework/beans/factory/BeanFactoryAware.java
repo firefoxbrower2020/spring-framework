@@ -19,16 +19,7 @@ package org.springframework.beans.factory;
 import org.springframework.beans.BeansException;
 
 /**
- * Interface to be implemented by beans that wish to be aware of their
- * owning {@link BeanFactory}.
- *
- * <p>For example, beans can look up collaborating beans via the factory
- * (Dependency Lookup). Note that most beans will choose to receive references
- * to collaborating beans via corresponding bean properties or constructor
- * arguments (Dependency Injection).
- *
- * <p>For a list of all bean lifecycle methods, see the
- * {@link BeanFactory BeanFactory javadocs}.
+ *  BeanFactoryAware实现此接口的bean可以获取到它们自己的Beanfactory。
  *
  * @author Rod Johnson
  * @author Chris Beams

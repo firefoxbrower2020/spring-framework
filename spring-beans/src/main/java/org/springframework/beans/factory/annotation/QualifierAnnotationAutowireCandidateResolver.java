@@ -43,11 +43,15 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link AutowireCandidateResolver} implementation that matches bean definition qualifiers
- * against {@link Qualifier qualifier annotations} on the field or parameter to be autowired.
- * Also supports suggested expression values through a {@link Value value} annotation.
- *
- * <p>Also supports JSR-330's {@link javax.inject.Qualifier} annotation, if available.
+ *@qualifier的注解实现类QualifierAnnotationAutowireCandidateResolver
+ 其中，AutowireCandidateResolver是一个策略接口，
+  由它来决定特定的bean definition对特定的依赖是否可以作为一个自动绑定的候选项，它的主要方法有：
+boolean isAutowireCandidate(BeanDefinitionHolder bdHolder, DependencyDescriptor descriptor)
+Object getLazyResolutionProxyIfNecessary(DependencyDescriptor descriptor,String beanName)
+Object getSuggestedValue(DependencyDescriptor descriptor)
+QualifierAnnotationAutowireCandidateResolver间接实现了AutowireCandidateResolver，
+对要自动绑定的field或者参数和bean definition根据@qualifier注解进行匹配。同时也支持通过@value注解来绑定表达式的值。
+另外，还只是JSR-330的javax.inject.Qualifier注解。
  *
  * @author Mark Fisher
  * @author Juergen Hoeller

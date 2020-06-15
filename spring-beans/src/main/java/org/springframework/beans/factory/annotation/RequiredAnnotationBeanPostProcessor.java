@@ -42,30 +42,14 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * {@link org.springframework.beans.factory.config.BeanPostProcessor} implementation
- * that enforces required JavaBean properties to have been configured.
- * Required bean properties are detected through a Java 5 annotation:
- * by default, Spring's {@link Required} annotation.
- *
- * <p>The motivation for the existence of this BeanPostProcessor is to allow
- * developers to annotate the setter properties of their own classes with an
- * arbitrary JDK 1.5 annotation to indicate that the container must check
- * for the configuration of a dependency injected value. This neatly pushes
- * responsibility for such checking onto the container (where it arguably belongs),
- * and obviates the need (<b>in part</b>) for a developer to code a method that
- * simply checks that all required properties have actually been set.
- *
- * <p>Please note that an 'init' method may still need to be implemented (and may
- * still be desirable), because all that this class does is enforcing that a
- * 'required' property has actually been configured with a value. It does
- * <b>not</b> check anything else... In particular, it does not check that a
- * configured value is not {@code null}.
- *
- * <p>Note: A default RequiredAnnotationBeanPostProcessor will be registered
- * by the "context:annotation-config" and "context:component-scan" XML tags.
- * Remove or turn off the default annotation configuration there if you intend
- * to specify a custom RequiredAnnotationBeanPostProcessor bean definition.
- *
+ * @required注解实现类RequiredAnnotationBeanPostProcessor
+和AutowiredAnnotationBeanPostProcessor一样，间接继承自BeanPostProcessor，它增加了对javaBean属性配置的约束，
+java 5 注解可以检测bean的required属性，spring默认是@Required注解。
+
+注意：默认注册AutowiredAnnotationBeanPostProcessor的方式有<context:annotation-config> 和<context:component-scan> xml标签，如果你指定了一个自定义的
+默认注册AutowiredAnnotationBeanPostProcessor的方式有<context:annotation-config> 和<context:component-scan> xml标签，
+如果你指定了一个自定义的AutowiredAnnotationBeanPostProcessor bean definition，移除或者关闭默认的注解配置。
+其余和AutowiredAnnotationBeanPostProcessor类似，不一一赘述了。
  * @author Rob Harrop
  * @author Juergen Hoeller
  * @since 2.0

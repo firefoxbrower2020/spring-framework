@@ -28,11 +28,11 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link Resource} implementation for class path resources. Uses either a
- * given {@link ClassLoader} or a given {@link Class} for loading resources.
- *
- * <p>Supports resolution as {@code java.io.File} if the class path
- * resource resides in the file system, but not for resources in a JAR.
+ * {@link Resource}  实现资源路径下的类. Uses either a
+ * 使用 一个 {@link ClassLoader} 或者{@link Class} 加载中资源
+ * resource resides in the file system
+ * 支持系统文件中的class path resource 
+ * ,但不支持jar中resource.
  * Always supports resolution as URL.
  *
  * @author Juergen Hoeller
@@ -40,6 +40,7 @@ import org.springframework.util.StringUtils;
  * @since 28.12.2003
  * @see ClassLoader#getResourceAsStream(String)
  * @see Class#getResourceAsStream(String)
+ *
  */
 public class ClassPathResource extends AbstractFileResolvingResource {
 

@@ -21,11 +21,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Holder for a key-value style attribute that is part of a bean definition.
- * Keeps track of the definition source in addition to the key-value pair.
- *
- * @author Juergen Hoeller
- * @since 2.5
+ * BeanMetadataAttribute : bean definition定义中属性键值对容器.
  */
 public class BeanMetadataAttribute implements BeanMetadataElement {
 

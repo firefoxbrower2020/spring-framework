@@ -17,9 +17,7 @@
 package org.springframework.beans.factory;
 
 /**
- * Exception thrown in case of a bean being requested despite
- * bean creation currently not being allowed (for example, during
- * the shutdown phase of a bean factory).
+ * BeanCreationNotAllowedException：若当前不允许创建一个bean时(例如在beanFactory关闭过程中)而试图去获取bean的请求时抛出的异常
  *
  * @author Juergen Hoeller
  * @since 2.0

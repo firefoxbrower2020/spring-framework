@@ -19,7 +19,7 @@ package org.springframework.beans.factory;
 import org.springframework.beans.FatalBeanException;
 
 /**
- * Exception that indicates an expression evaluation attempt having failed.
+ * BeanExpressionException：获取一个表达式的值失败时抛出的异常
  *
  * @author Juergen Hoeller
  * @since 3.0

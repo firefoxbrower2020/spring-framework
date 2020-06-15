@@ -21,13 +21,8 @@ import java.io.Serializable;
 import org.springframework.util.StringUtils;
 
 /**
- * Mutable implementation of the {@link SortDefinition} interface.
- * Supports toggling the ascending value on setting the same property again.
+ MutableSortDefinition：SortDefinition接口的可变实现
  *
- * @author Juergen Hoeller
- * @author Jean-Pierre Pawlak
- * @since 26.05.2003
- * @see #setToggleAscendingOnProperty
  */
 @SuppressWarnings("serial")
 public class MutableSortDefinition implements SortDefinition, Serializable {

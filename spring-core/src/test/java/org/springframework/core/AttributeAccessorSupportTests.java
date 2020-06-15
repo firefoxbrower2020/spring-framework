@@ -23,17 +23,23 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * @author Rob Harrop
- * @author Sam Brannen
- * @since 2.0
+ AttributeAccessor 赋值相关操作
  */
 public class AttributeAccessorSupportTests {
 
 	private static final String NAME = "foo";
 
 	private static final String VALUE = "bar";
-
+	
+	@SuppressWarnings("serial")
+	//如果一个类要被声明为static的，只有一种情况，就是静态内部类。
+	// 如果在外部类声明为static，程序会编译都不会过。
+	// 在一番调查后个人总结出了3点关于内部类和静态内部类（俗称：内嵌类）
+	private static class SimpleAttributeAccessorSupport extends AttributeAccessorSupport {
+	}
 	private AttributeAccessor attributeAccessor = new SimpleAttributeAccessorSupport();
+
+
 
 	@Test
 	public void setAndGet() throws Exception {
@@ -66,8 +72,5 @@ public class AttributeAccessorSupportTests {
 		assertTrue(Arrays.binarySearch(attributeNames, "abc") > -1);
 	}
 
-	@SuppressWarnings("serial")
-	private static class SimpleAttributeAccessorSupport extends AttributeAccessorSupport {
-	}
-
+	
 }

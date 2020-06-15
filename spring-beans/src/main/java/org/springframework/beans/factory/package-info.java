@@ -8,6 +8,8 @@
  * <p>This package and related packages are discussed in Chapter 11 of
  * <a href="https://www.amazon.com/exec/obidos/tg/detail/-/0764543857/">Expert One-On-One J2EE Design and Development</a>
  * by Rod Johnson (Wrox, 2002).
+ * 
+ *  实现spring轻量级IoC容器的核心包。
  */
 @NonNullApi
 @NonNullFields

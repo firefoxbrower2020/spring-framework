@@ -20,7 +20,7 @@ import org.springframework.beans.FatalBeanException;
 import org.springframework.lang.Nullable;
 
 /**
- * Exception thrown when the BeanFactory cannot load the specified class
+ * CannotLoadBeanClassException：BeanFactory不能加载指定bean的class类时抛出的异常
  * of a given bean.
  *
  * @author Juergen Hoeller

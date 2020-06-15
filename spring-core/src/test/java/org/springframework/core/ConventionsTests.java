@@ -41,6 +41,8 @@ import static org.junit.Assert.*;
  *
  * @author Rob Harrop
  * @author Sam Brannen
+ * 
+ * 转换器 Conventions
  */
 public class ConventionsTests {
 

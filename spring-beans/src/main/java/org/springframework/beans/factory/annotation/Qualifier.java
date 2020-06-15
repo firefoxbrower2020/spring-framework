@@ -24,9 +24,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * This annotation may be used on a field or parameter as a qualifier for
- * candidate beans when autowiring. It may also be used to annotate other
- * custom annotations that can then in turn be used as qualifiers.
+ * public @interface Qualifier：指定限定描述符，对应于基于XML配置中的<qualifier>标签，@Qualifier限定描述符除了能根据名字进行注入，但能进行更细粒度的控制如何选择候选者
+ * @Qualifier(value = "限定标识符") 。
  *
  * @author Mark Fisher
  * @author Juergen Hoeller

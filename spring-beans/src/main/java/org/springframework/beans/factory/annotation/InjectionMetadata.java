@@ -35,9 +35,9 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * Internal class for managing injection metadata.
- * Not intended for direct use in applications.
- *
+ * InjectionMetadata：管理注入元数据的内部类
+ * 
+ * 
  * <p>Used by {@link AutowiredAnnotationBeanPostProcessor},
  * {@link org.springframework.context.annotation.CommonAnnotationBeanPostProcessor} and
  * {@link org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor}.

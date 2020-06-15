@@ -37,8 +37,9 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Convenience methods performing bean lookups related to Spring-specific annotations,
- * for example Spring's {@link Qualifier @Qualifier} annotation.
+ * BeanFactoryAnnotationUtils：关联注解的bean的查询的工具方法，例如spring的@Qualifier注解。
+ *
+ * public static <T> T qualifiedBeanOfType()
  *
  * @author Juergen Hoeller
  * @author Chris Beams

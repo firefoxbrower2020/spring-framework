@@ -24,13 +24,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Combined exception, composed of individual PropertyAccessException instances.
- * An object of this class is created at the beginning of the binding
- * process, and errors added to it as necessary.
- *
- * <p>The binding process continues when it encounters application-level
- * PropertyAccessExceptions, applying those changes that can be applied
- * and storing rejected changes in an object of this class.
+ PropertyBatchUpdateException：PropertyBatchUpdateException组合异常，由多个的单个PropertyAccessException实例组成
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

@@ -29,8 +29,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
- * PropertyComparator performs a comparison of two beans,
- * evaluating the specified bean property via a BeanWrapper.
+ PropertyComparator：比较对象为两个bean，通过BeanWrapper来比较指定bean的属性
+ 
  *
  * @author Juergen Hoeller
  * @author Jean-Pierre Pawlak

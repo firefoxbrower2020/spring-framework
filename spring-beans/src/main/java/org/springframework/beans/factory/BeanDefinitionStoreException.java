@@ -13,15 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package org.springframework.beans.factory;
-
 import org.springframework.beans.FatalBeanException;
 import org.springframework.lang.Nullable;
 
 /**
- * Exception thrown when a BeanFactory encounters an invalid bean definition:
- * e.g. in case of incomplete or contradictory bean metadata.
+ * beanFactory遇到一个无效的bean definition抛出的异常
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

@@ -365,11 +365,12 @@ class ConfigurationClassBeanDefinitionReader {
 	}
 
 
-	/**
-	 * {@link RootBeanDefinition} marker subclass used to signify that a bean definition
-	 * was created from a configuration class as opposed to any other configuration source.
-	 * Used in bean overriding cases where it's necessary to determine whether the bean
-	 * definition was created externally.
+	/**  注解bean的实现类
+	 * ConfigurationClassBeanDefinition :
+	 *  ConfigurationClassBeanDefinition是ConfigurationClassBeanDefinitionReader的内部类，
+	 *  ConfigurationClassBeanDefinitionReader读取一组完全填充了属性的配置实例，
+	 *  通过context内给定的BeanDefinitionRegistry进行注册bean definition。
+	 *  这个类在BeanDefinitionReader这层后就改造，但没有继承或者扩展配置类
 	 */
 	@SuppressWarnings("serial")
 	private static class ConfigurationClassBeanDefinition extends RootBeanDefinition implements AnnotatedBeanDefinition {

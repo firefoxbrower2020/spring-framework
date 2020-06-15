@@ -28,8 +28,13 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.MultiValueMap;
 
 /**
- * {@link AnnotationMetadata} implementation that uses standard reflection
- * to introspect a given {@link Class}.
+ * AnnotationMetadata的标准实现类StandardAnnotationMetadata,它使用标准的反射来获取制定类的内部注解信息。主要方法有：
+ *
+ * getAllAnnotationAttributes(String annotationType) 
+ * getAnnotatedMethods(String annotationType) 
+ * hasMetaAnnotation(String annotationType) 
+ * isAnnotated(String annotationType) 
+ * hasAnnotatedMethods(String annotationType) 
  *
  * @author Juergen Hoeller
  * @author Mark Fisher

@@ -23,17 +23,14 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * {@link org.springframework.beans.factory.wiring.BeanWiringInfoResolver} that
- * uses the Configurable annotation to identify which classes need autowiring.
- * The bean name to look up will be taken from the {@link Configurable} annotation
- * if specified; otherwise the default will be the fully-qualified name of the
- * class being configured.
- *
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @since 2.0
- * @see Configurable
- * @see org.springframework.beans.factory.wiring.ClassNameBeanWiringInfoResolver
+ *@configurable注解实现AnnotationBeanWiringInfoResolver
+ * 设置 @Configurable 注解中的autowire属性就可以让Spring来自动装配了：
+ * @Configurable(autowire=Autowire.BY_TYPE) 或者 @Configurable(autowire=Autowire.BY_NAME，这样就可以按类型或者按名字自动装配了
+ * 
+ * 
+ * AnnotationBeanWiringInfoResolver 继承自BeanWiringInfoResolver，
+ * BeanWiringInfoResolver使用configurable注解来查找哪些类需要自动绑定。
+ * 实现了BeanWiringInfoResolver的resolveWiringInfo方法
  */
 public class AnnotationBeanWiringInfoResolver implements BeanWiringInfoResolver {
 

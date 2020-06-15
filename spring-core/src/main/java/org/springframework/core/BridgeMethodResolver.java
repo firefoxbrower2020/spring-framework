@@ -131,8 +131,7 @@ public final class BridgeMethodResolver {
 	}
 
 	/**
-	 * Determines whether or not the bridge {@link Method} is the bridge for the
-	 * supplied candidate {@link Method}.
+	 * 前者是否位后者的桥接过的方法。
 	 */
 	static boolean isBridgeMethodFor(Method bridgeMethod, Method candidateMethod, Class<?> declaringClass) {
 		if (isResolvedTypeMatch(candidateMethod, bridgeMethod, declaringClass)) {

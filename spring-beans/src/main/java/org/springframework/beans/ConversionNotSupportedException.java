@@ -21,7 +21,7 @@ import java.beans.PropertyChangeEvent;
 import org.springframework.lang.Nullable;
 
 /**
- * Exception thrown when no suitable editor or converter can be found for a bean property.
+ * ConversionNotSupportedException：当一个bean的属性没有适合的编辑器或者转换器时所抛出的异常
  *
  * @author Arjen Poutsma
  * @author Juergen Hoeller

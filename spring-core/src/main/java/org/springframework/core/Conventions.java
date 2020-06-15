@@ -28,7 +28,7 @@ import org.springframework.util.ClassUtils;
 /**
  * Provides methods to support various naming and other conventions used
  * throughout the framework. Mainly for internal use within the framework.
- *
+ *  一些方法和属性的转换器
  * @author Rob Harrop
  * @author Juergen Hoeller
  * @author Rossen Stoyanchev

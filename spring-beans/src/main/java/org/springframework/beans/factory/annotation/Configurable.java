@@ -24,9 +24,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Marks a class as being eligible for Spring-driven configuration.
- *
- * <p>Typically used with the AspectJ {@code AnnotationBeanConfigurerAspect}.
+ *  public @interface Configurable @Configurable 注解中的autowire属性就可以让Spring来自动装配了：
+ *  @Configurable(autowire=Autowire.BY_TYPE) 或者 @Configurable(autowire=Autowire.BY_NAME，这样就可以按类型或者按名字自动装配了。
  *
  * @author Rod Johnson
  * @author Rob Harrop

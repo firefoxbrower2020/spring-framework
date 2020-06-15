@@ -17,9 +17,7 @@
 package org.springframework.beans;
 
 /**
- * Simple factory facade for obtaining {@link PropertyAccessor} instances,
- * in particular for {@link BeanWrapper} instances. Conceals the actual
- * target implementation classes and their extended public signature.
+ *PropertyAccessorFactory：获取PropertyAccessor实例的简单工厂门面, 特别是获取BeanWrapper实例
  *
  * @author Juergen Hoeller
  * @since 2.5.2

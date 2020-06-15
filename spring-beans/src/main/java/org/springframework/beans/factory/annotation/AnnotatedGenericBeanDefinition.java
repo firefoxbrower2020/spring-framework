@@ -24,15 +24,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Extension of the {@link org.springframework.beans.factory.support.GenericBeanDefinition}
- * class, adding support for annotation metadata exposed through the
- * {@link AnnotatedBeanDefinition} interface.
- *
- * <p>This GenericBeanDefinition variant is mainly useful for testing code that expects
- * to operate on an AnnotatedBeanDefinition, for example strategy implementations
- * in Spring's component scanning support (where the default definition class is
- * {@link org.springframework.context.annotation.ScannedGenericBeanDefinition},
- * which also implements the AnnotatedBeanDefinition interface).
+ * AnnotatedGenericBeanDefinition：
+ * 继承了GenericBeanDefinition，增加了对注解元素的支持，这种支持是通过AnnotationBeanDefinition暴露的的注解元素接口
  *
  * @author Juergen Hoeller
  * @author Chris Beams

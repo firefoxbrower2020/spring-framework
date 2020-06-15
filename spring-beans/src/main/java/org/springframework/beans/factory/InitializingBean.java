@@ -17,13 +17,9 @@
 package org.springframework.beans.factory;
 
 /**
- * Interface to be implemented by beans that need to react once all their properties
- * have been set by a {@link BeanFactory}: e.g. to perform custom initialization,
- * or merely to check that all mandatory properties have been set.
- *
- * <p>An alternative to implementing {@code InitializingBean} is specifying a custom
- * init method, for example in an XML bean definition. For a list of all bean
- * lifecycle methods, see the {@link BeanFactory BeanFactory javadocs}.
+ * InitializingBean：实现此接口的bean在BeanFactory设置为它们的属性时只需要执行一次
+ * 例如：初始化定制或者仅仅检查必须存在的属性是否已经设置完成等等。
+ * void afterPropertiesSet() throws Exception;
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
@@ -37,12 +33,6 @@ public interface InitializingBean {
 	 * 该方法在BeanFactory设置完了所有属性之后被调用
 	 * 该方法允许bean实例设置了所有bean属性时执行初始化工作，如果该过程中出现了错误则需要抛出异常
 	 *
-	 * Invoked by the containing {@code BeanFactory} after it has set all bean properties
-	 * and satisfied {@link BeanFactoryAware}, {@code ApplicationContextAware} etc.
-	 * <p>This method allows the bean instance to perform validation of its overall
-	 * configuration and final initialization when all bean properties have been set.
-	 * @throws Exception in the event of misconfiguration (such as failure to set an
-	 * essential property) or if initialization fails for any other reason
 	 */
 	void afterPropertiesSet() throws Exception;
 

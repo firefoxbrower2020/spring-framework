@@ -20,7 +20,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.util.ClassUtils;
 
 /**
- * Thrown when a bean doesn't match the expected type.
+ * BeanNotOfRequiredTypeException：当一个bean的类型和期望类型不匹配时抛出的异常。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

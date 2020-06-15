@@ -19,15 +19,8 @@ package org.springframework.beans;
 import org.springframework.lang.Nullable;
 
 /**
- * Interface representing an object whose value set can be merged with
- * that of a parent object.
- *
- * @author Rob Harrop
- * @since 2.0
- * @see org.springframework.beans.factory.support.ManagedSet
- * @see org.springframework.beans.factory.support.ManagedList
- * @see org.springframework.beans.factory.support.ManagedMap
- * @see org.springframework.beans.factory.support.ManagedProperties
+ 代表一个对象的值组可以和父对象的值组合并的接口。
+ 其主要子类有：anagedList, MManagedArray, ManagedMap, ManagedProperties, ManagedSet
  */
 public interface Mergeable {
 

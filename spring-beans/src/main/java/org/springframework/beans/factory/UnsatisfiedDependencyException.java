@@ -21,9 +21,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
- * Exception thrown when a bean depends on other beans or simple properties
- * that were not specified in the bean factory definition, although
- * dependency checking was enabled.
+ * UnsatisfiedDependencyException：当有依赖检查时，在bean factory定义中，bean的依赖或者属性没有指定时抛出的异常
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

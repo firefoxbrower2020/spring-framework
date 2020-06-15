@@ -19,8 +19,15 @@ package org.springframework.core.type;
 import java.util.Set;
 
 /**
- * Interface that defines abstract access to the annotations of a specific
- * class, in a form that does not require that class to be loaded yet.
+ AnnotationMetadata的标准实现类StandardAnnotationMetadata,它使用标准的反射来获取制定类的内部注解信息。主要方法有：
+
+ getAllAnnotationAttributes(String annotationType) 
+ getAnnotatedMethods(String annotationType) 
+ hasMetaAnnotation(String annotationType) 
+ isAnnotated(String annotationType) 
+ hasAnnotatedMethods(String annotationType) 
+
+ AnnotationMetadata还有一个子类：AnnotationMetadataReadingVisitor，它是字节码访问实现。
  *
  * @author Juergen Hoeller
  * @author Mark Fisher

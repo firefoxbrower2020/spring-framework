@@ -19,17 +19,12 @@ package org.springframework.beans.factory.support;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
 /**
- * Post-processor callback interface for <i>merged</i> bean definitions at runtime.
- * {@link BeanPostProcessor} implementations may implement this sub-interface in order
- * to post-process the merged bean definition (a processed copy of the original bean
- * definition) that the Spring {@code BeanFactory} uses to create a bean instance.
+ * BeanPostProcessor 是一个可以定制修改一个新的bean实例的工厂钩子，例如：检查marker接口或者使用代理包装他们。
+ * applicationContext 可以在他们的bean容器中自动识别BeanPostProcessor bean，
+ * 并将它们应用到接下来所创建的bean。一般的bean factory通过编程来注册Post-processor，并将它们应用到整个bean factory创建bean的过程中。
  *
- * <p>The {@link #postProcessMergedBeanDefinition} method may for example introspect
- * the bean definition in order to prepare some cached metadata before post-processing
- * actual instances of a bean. It is also allowed to modify the bean definition but
- * <i>only</i> for definition properties which are actually intended for concurrent
- * modification. Essentially, this only applies to operations defined on the
- * {@link RootBeanDefinition} itself but not to the properties of its base classes.
+ * 通常意义上，post-processor 设置bean属性通过marker 接口或者类似于实现postProcessBeforeInitialization(java.lang.Object, java.lang.String)；
+ * 使用代理包装bean通常实现postProcessAfterInitialization(java.lang.Object, java.lang.String).
  *
  * @author Juergen Hoeller
  * @since 2.5

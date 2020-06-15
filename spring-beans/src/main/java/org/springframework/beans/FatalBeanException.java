@@ -19,8 +19,8 @@ package org.springframework.beans;
 import org.springframework.lang.Nullable;
 
 /**
- * Thrown on an unrecoverable problem encountered in the
- * beans packages or sub-packages, e.g. bad class or field.
+ * FatalBeanException： 在bean包和子包中遇到的不可恢复问题抛出的异常，
+ * 例如：当引用一个无效的bean属性时抛出的InvalidPropertyException异常
  *
  * @author Rod Johnson
  */

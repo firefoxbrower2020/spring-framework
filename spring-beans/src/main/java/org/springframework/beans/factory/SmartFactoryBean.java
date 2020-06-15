@@ -17,21 +17,9 @@
 package org.springframework.beans.factory;
 
 /**
- * Extension of the {@link FactoryBean} interface. Implementations may
- * indicate whether they always return independent instances, for the
- * case where their {@link #isSingleton()} implementation returning
- * {@code false} does not clearly indicate independent instances.
- *
- * <p>Plain {@link FactoryBean} implementations which do not implement
- * this extended interface are simply assumed to always return independent
- * instances if their {@link #isSingleton()} implementation returns
- * {@code false}; the exposed object is only accessed on demand.
- *
- * <p><b>NOTE:</b> This interface is a special purpose interface, mainly for
- * internal use within the framework and within collaborating frameworks.
- * In general, application-provided FactoryBeans should simply implement
- * the plain {@link FactoryBean} interface. New methods might be added
- * to this extended interface even in point releases.
+ *SmartFactoryBean<T>：FactoryBean接口的扩展实现
+ * boolean isPrototype();
+ * boolean isEagerInit();
  *
  * @author Juergen Hoeller
  * @since 2.0.3

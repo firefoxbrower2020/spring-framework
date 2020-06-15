@@ -38,6 +38,8 @@ import static org.junit.Assert.*;
  * @author Rob Harrop
  * @author Juergen Hoeller
  * @author Chris Beams
+ * 
+ * BridgeMethodResolver 桥接方法解析器
  */
 @SuppressWarnings("rawtypes")
 public class BridgeMethodResolverTests {
@@ -55,6 +57,12 @@ public class BridgeMethodResolverTests {
 
 	@Test
 	public void testFindBridgedMethod() throws Exception {
+		// getDeclaredMethod 方法返回一个Method对象，它反映此Class对象所表示的类或接口的指定已声明方法。
+		/**
+		 * getDeclaredMethod() 获取的是类自身声明的所有方法，包含public、protected和private方法。
+		 *
+		 * getMethod () 获取的是类的所有共有方法，这就包括自身的所有public方法，和从基类继承的、从接口实现的所有public方法。
+		 * */
 		Method unbridged = MyFoo.class.getDeclaredMethod("someMethod", String.class, Object.class);
 		Method bridged = MyFoo.class.getDeclaredMethod("someMethod", Serializable.class, Object.class);
 		assertFalse(unbridged.isBridge());
@@ -74,7 +82,19 @@ public class BridgeMethodResolverTests {
 		assertEquals("Unbridged method not returned directly", unbridged, BridgeMethodResolver.findBridgedMethod(unbridged));
 		assertEquals("Incorrect bridged method returned", unbridged, BridgeMethodResolver.findBridgedMethod(bridged));
 	}
+	public static abstract class AbstractDateAdder implements Adder<Date> {
 
+		@Override
+		public abstract void add(Date date);
+	}
+
+	public static class DateAdder extends AbstractDateAdder {
+
+		@Override
+		public void add(Date date) {
+		}
+	}
+	
 	@Test
 	public void testFindBridgedMethodInHierarchy() throws Exception {
 		Method bridgeMethod = DateAdder.class.getMethod("add", Object.class);
@@ -86,6 +106,21 @@ public class BridgeMethodResolverTests {
 		assertEquals(Date.class, bridgedMethod.getParameterTypes()[0]);
 	}
 
+
+	public static abstract class InterBar<T> extends Bar<T> {
+
+	}
+
+
+	public static class MyBar extends InterBar<String> {
+
+		@Override
+		public void someMethod(String theArg, Object otherArg) {
+		}
+
+		public void someMethod(Integer theArg, Object otherArg) {
+		}
+	}
 	@Test
 	public void testIsBridgeMethodFor() throws Exception {
 		Method bridged = MyBar.class.getDeclaredMethod("someMethod", String.class, Object.class);
@@ -95,7 +130,26 @@ public class BridgeMethodResolverTests {
 		assertTrue("Should be bridge method", BridgeMethodResolver.isBridgeMethodFor(bridge, bridged, MyBar.class));
 		assertFalse("Should not be bridge method", BridgeMethodResolver.isBridgeMethodFor(bridge, other, MyBar.class));
 	}
+	public interface Boo<E, T extends Serializable> {
 
+		void foo(E e);
+
+		void foo(T t);
+	}
+
+
+	public static class MyBoo implements Boo<String, Integer> {
+
+		@Override
+		public void foo(String e) {
+			throw new UnsupportedOperationException();
+		}
+
+		@Override
+		public void foo(Integer t) {
+			throw new UnsupportedOperationException();
+		}
+	}
 	@Test
 	public void testDoubleParameterization() throws Exception {
 		Method objectBridge = MyBoo.class.getDeclaredMethod("foo", Object.class);
@@ -106,6 +160,13 @@ public class BridgeMethodResolverTests {
 
 		assertEquals("foo(String) not resolved.", stringFoo, BridgeMethodResolver.findBridgedMethod(objectBridge));
 		assertEquals("foo(Integer) not resolved.", integerFoo, BridgeMethodResolver.findBridgedMethod(serializableBridge));
+	}
+
+	public interface Settings {
+	}
+
+
+	public interface ConcreteSettings extends Settings {
 	}
 
 	@Test
@@ -357,20 +418,7 @@ public class BridgeMethodResolverTests {
 	}
 
 
-	public static abstract class InterBar<T> extends Bar<T> {
-
-	}
-
-
-	public static class MyBar extends InterBar<String> {
-
-		@Override
-		public void someMethod(String theArg, Object otherArg) {
-		}
-
-		public void someMethod(Integer theArg, Object otherArg) {
-		}
-	}
+	
 
 
 	public interface Adder<T> {
@@ -379,19 +427,9 @@ public class BridgeMethodResolverTests {
 	}
 
 
-	public static abstract class AbstractDateAdder implements Adder<Date> {
-
-		@Override
-		public abstract void add(Date date);
-	}
 
 
-	public static class DateAdder extends AbstractDateAdder {
 
-		@Override
-		public void add(Date date) {
-		}
-	}
 
 
 	public static class Enclosing<T> {
@@ -422,34 +460,9 @@ public class BridgeMethodResolverTests {
 	}
 
 
-	public interface Boo<E, T extends Serializable> {
-
-		void foo(E e);
-
-		void foo(T t);
-	}
+	
 
 
-	public static class MyBoo implements Boo<String, Integer> {
-
-		@Override
-		public void foo(String e) {
-			throw new UnsupportedOperationException();
-		}
-
-		@Override
-		public void foo(Integer t) {
-			throw new UnsupportedOperationException();
-		}
-	}
-
-
-	public interface Settings {
-	}
-
-
-	public interface ConcreteSettings extends Settings {
-	}
 
 
 	public interface Dao<T, S> {

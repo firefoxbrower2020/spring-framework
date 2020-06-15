@@ -19,8 +19,7 @@ package org.springframework.beans;
 import org.springframework.lang.Nullable;
 
 /**
- * Exception thrown on an attempt to set the value of a property that
- * is not writable (typically because there is no setter method).
+ NotWritablePropertyException：当试图向一个不可写属性写入属性值时抛出的异常，典型场景bean属性没有set方法
  *
  * @author Rod Johnson
  * @author Alef Arendsen

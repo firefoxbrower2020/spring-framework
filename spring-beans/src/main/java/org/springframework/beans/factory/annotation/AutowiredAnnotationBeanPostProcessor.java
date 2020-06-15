@@ -66,45 +66,24 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link org.springframework.beans.factory.config.BeanPostProcessor} implementation
- * that autowires annotated fields, setter methods and arbitrary config methods.
- * Such members to be injected are detected through a Java 5 annotation: by default,
- * Spring's {@link Autowired @Autowired} and {@link Value @Value} annotations.
  *
- * <p>Also supports JSR-330's {@link javax.inject.Inject @Inject} annotation,
- * if available, as a direct alternative to Spring's own {@code @Autowired}.
- *
- * <p>Only one constructor (at max) of any given bean class may declare this annotation
- * with the 'required' parameter set to {@code true}, indicating <i>the</i> constructor
- * to autowire when used as a Spring bean. If multiple <i>non-required</i> constructors
- * declare the annotation, they will be considered as candidates for autowiring.
- * The constructor with the greatest number of dependencies that can be satisfied by
- * matching beans in the Spring container will be chosen. If none of the candidates
- * can be satisfied, then a primary/default constructor (if present) will be used.
- * If a class only declares a single constructor to begin with, it will always be used,
- * even if not annotated. An annotated constructor does not have to be public.
- *
- * <p>Fields are injected right after construction of a bean, before any
- * config methods are invoked. Such a config field does not have to be public.
- *
- * <p>Config methods may have an arbitrary name and any number of arguments; each of
- * those arguments will be autowired with a matching bean in the Spring container.
- * Bean property setter methods are effectively just a special case of such a
- * general config method. Config methods do not have to be public.
- *
- * <p>Note: A default AutowiredAnnotationBeanPostProcessor will be registered
- * by the "context:annotation-config" and "context:component-scan" XML tags.
- * Remove or turn off the default annotation configuration there if you intend
- * to specify a custom AutowiredAnnotationBeanPostProcessor bean definition.
- * <p><b>NOTE:</b> Annotation injection will be performed <i>before</i> XML injection;
- * thus the latter configuration will override the former for properties wired through
- * both approaches.
- *
- * <p>In addition to regular injection points as discussed above, this post-processor
- * also handles Spring's {@link Lookup @Lookup} annotation which identifies lookup
- * methods to be replaced by the container at runtime. This is essentially a type-safe
- * version of {@code getBean(Class, args)} and {@code getBean(String, args)},
- * See {@link Lookup @Lookup's javadoc} for details.
+ AutowiredAnnotationBeanPostProcessor:实现了BeanPostProcessor接口，它自动绑定注解的field，set方法和任意配置方法
+ 
+ AutowiredAnnotationBeanPostProcessor：
+ 间接继承了BeanPostProcessor，它自动绑定注解的field，setter方法和任意的配置方法。当检测到5个java注解时这些成员被注入其中。spring默认的注解为@Autowired和@Value。
+ 另外：也支持JSR-330的@inject注解，作为@Autowired的替代方案。
+
+ 当制定bean 类的唯一构造方法带有required 注解参数，且required值设置为true时，表明当作为spring一个bean时，构造方法默认自动绑定。
+ 若多个构造方法带有non-required 注解参数，它们将作为自动绑定的候选项。带有大量依赖的构造方法可以通过spring容器中的匹配的bean来构造，
+ 如果没有候选者满足条件，则会使用默认的构造器。注解构造器不一定是public的。
+ Field注入是在构造方法之后，配置方法之前，这种配置field不要求一定为public
+ 配置方法可以有任意的名称和不定的参数列表，这些参数则被自动注入到spring容器中的匹配的bean。
+ bean的属性setter方法仅仅是通用的配置方法的一个特例而已。
+ 配置方法不要求方法一定为public
+ 注意：默认注册AutowiredAnnotationBeanPostProcessor的方式有<context:annotation-config> 和<context:component-scan> xml标签，
+ 如果你指定了一个自定义的AutowiredAnnotationBeanPostProcessor bean definition，移除或者关闭默认的注解配置。
+
+
  *
  * @author Juergen Hoeller
  * @author Mark Fisher
@@ -139,9 +118,11 @@ public class AutowiredAnnotationBeanPostProcessor extends InstantiationAwareBean
 
 
 	/**
-	 * Create a new AutowiredAnnotationBeanPostProcessor
-	 * for Spring's standard {@link Autowired} annotation.
-	 * <p>Also supports JSR-330's {@link javax.inject.Inject} annotation, if available.
+	 * AutowiredAnnotationBeanPostProcessor 间接继承了BeanPostProcessor，
+	 * 它自动绑定注解的field，setter方法和任意的配置方法。
+	 * 当检测到5个java注解时这些成员被注入其中。
+	 * spring默认的注解为@Autowired和@Value。
+	 * 另外：也支持JSR-330的@inject注解，作为@Autowired的替代方案。
 	 */
 	@SuppressWarnings("unchecked")
 	public AutowiredAnnotationBeanPostProcessor() {

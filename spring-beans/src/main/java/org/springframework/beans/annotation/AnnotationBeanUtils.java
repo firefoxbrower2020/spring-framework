@@ -30,7 +30,9 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringValueResolver;
 
 /**
- * General utility methods for working with annotations in JavaBeans style.
+ AnnotationBeanUtils：javabean类型注解的通用工具方法。方法有：
+ public static void copyPropertiesToBean()
+ 静态方法，拷贝指定Annotation的属性到给定的目标bean。
  *
  * @author Rob Harrop
  * @author Juergen Hoeller

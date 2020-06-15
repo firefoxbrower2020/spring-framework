@@ -17,13 +17,8 @@
 package org.springframework.beans;
 
 /**
- * Interface for strategies that register custom
- * {@link java.beans.PropertyEditor property editors} with a
- * {@link org.springframework.beans.PropertyEditorRegistry property editor registry}.
- *
- * <p>This is particularly useful when you need to use the same set of
- * property editors in several different situations: write a corresponding
- * registrar and reuse that in each case.
+ 用一个属性编辑注册器(PropertyEditorRegistry)注册一个
+ 自定义的属性编辑器(PropertyEditor)的策略接口
  *
  * @author Juergen Hoeller
  * @since 1.2.6

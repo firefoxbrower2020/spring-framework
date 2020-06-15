@@ -25,13 +25,10 @@ import org.springframework.core.Ordered;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link BeanInfoFactory} implementation that evaluates whether bean classes have
- * "non-standard" JavaBeans setter methods and are thus candidates for introspection
- * by Spring's (package-visible) {@code ExtendedBeanInfo} implementation.
- *
- * <p>Ordered at {@link Ordered#LOWEST_PRECEDENCE} to allow other user-defined
- * {@link BeanInfoFactory} types to take precedence.
- *
+ ExtendedBeanInfoFactory BeanInfoFactory接口实现，
+ 评估bean的class是否有不满足javaBean规范的set方法，
+ 因而是否满足spring ExtendedBeanInfo作为内省的候选。
+ 
  * @author Chris Beams
  * @since 3.2
  * @see BeanInfoFactory
