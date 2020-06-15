@@ -19,12 +19,17 @@ package org.springframework.core;
 import org.springframework.lang.Nullable;
 
 /**
- * Interface defining a generic contract for attaching and accessing metadata
- * to/from arbitrary objects.
- *
+ * AttributeAccessor
  * 定义了与其他对象的元数据进行连接和访问的约定，
  * 即对属性的修改，包括获取、设置、删除
  *
+ AttributeAccessor接口定义了最基本的对任意对象的元数据的修改或者获取，主要方法有：
+
+	 String[] attributeNames() 
+	 Object getAttribute(String name) 
+	 boolean hasAttribute(String name) 
+	 Object removeAttribute(String name) 
+	 void setAttribute(String name, Object value)
  * @author Rob Harrop
  * @since 2.0
  */

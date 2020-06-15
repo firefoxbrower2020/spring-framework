@@ -20,6 +20,10 @@ import java.beans.PropertyDescriptor;
 
 /**
 spring 底层JavaBean公共基础的核心接口
+
+ 作用：提供对标准javabean的分析和操作方法：单个或者批量获取和设置属性值，获取属性描述符，查询属性的可读性和可写性等。
+ 支持属性的嵌套设置，深度没有限制
+ 
  */
 public interface BeanWrapper extends ConfigurablePropertyAccessor {
 

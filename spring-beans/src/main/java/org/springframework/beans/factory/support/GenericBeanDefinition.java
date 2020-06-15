@@ -23,7 +23,15 @@ import org.springframework.lang.Nullable;
  *  GenericBeanDefinition主要用来测试AnnotatedBeanDefinition上的操作的，
  *  例如：在spring的component扫描支持的实现中（默认实现类是ScannedGenericBeanDefinition，
  *  它同样实现了AnnotatedBeanDefinition接口
- *
+
+ GenericBeanDefinition是一站式的标准bean definition，
+ 除了具有指定类、可选的构造参数值和属性参数这些其它bean definition一样的特性外，
+ 它还具有通过parenetName属性来灵活设置parent bean definition。
+ 通常， GenericBeanDefinition用来注册用户可见的bean definition
+ (可见的bean definition意味着可以在该类bean definition上定义post-processor来对bean进行操作，甚至为配置parent name做扩展准备)。
+ RootBeanDefinition / ChildBeanDefinition用来预定义具有parent/child关系的bean definition
+ 
+ 
  * @author Juergen Hoeller
  * @since 2.5
  * @see #setParentName

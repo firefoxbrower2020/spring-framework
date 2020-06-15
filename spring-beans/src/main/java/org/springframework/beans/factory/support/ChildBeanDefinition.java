@@ -22,22 +22,15 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Bean definition for beans which inherit settings from their parent.
- * Child bean definitions have a fixed dependency on a parent bean definition.
- *
- * <p>A child bean definition will inherit constructor argument values,
- * property values and method overrides from the parent, with the option
- * to add new values. If init method, destroy method and/or static factory
- * method are specified, they will override the corresponding parent settings.
- * The remaining settings will <i>always</i> be taken from the child definition:
- * depends on, autowire mode, dependency check, singleton, lazy init.
- *
- * <p><b>NOTE:</b> Since Spring 2.5, the preferred way to register bean
- * definitions programmatically is the {@link GenericBeanDefinition} class,
- * which allows to dynamically define parent dependencies through the
- * {@link GenericBeanDefinition#setParentName} method. This effectively
- * supersedes the ChildBeanDefinition class for most use cases.
- *
+ * 　ChildBeanDefinition从父类继承构造参数值，属性值并可以重写父类的方法，同时也可以增加新的属性或者方法。
+    (类同于java类的继承关系)。若指定初始化方法，销毁方法或者静态工厂方法，　
+ 　  ChildBeanDefinition将重写相应父类的设置。
+     depends on，autowire mode，dependency check，sigleton，lazy init 一般由子类自行设定。
+ 
+ 注意：从spring 2.5 开始，提供了一个更好的注册bean definition类GenericBeanDefinition，
+ 它支持动态定义父依赖，方法是GenericBeanDefinition.setParentName(java.lang.String)，
+ GenericBeanDefinition可以有效的替代ChildBeanDefinition的绝大分部使用场合。
+
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @see GenericBeanDefinition

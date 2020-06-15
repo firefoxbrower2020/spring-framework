@@ -22,13 +22,31 @@ import org.springframework.core.AttributeAccessor;
 import org.springframework.lang.Nullable;
 
 /**
- * A BeanDefinition describes a bean instance, which has property values,
- * constructor argument values, and further information supplied by
- * concrete implementations.
+ * Bean的定义BeanDefinition
  *
- * <p>This is just a minimal interface: The main intention is to allow a
- * {@link BeanFactoryPostProcessor} such as {@link PropertyPlaceholderConfigurer}
- * to introspect and modify property values and other bean metadata.
+ * 1.1 BeanDefinition 作用
+ *
+ * 一个BeanDefinition描述了一个bean的实例，包括属性值，构造方法参数值和继承自它的类的更多信息。
+ * BeanDefinition仅仅是一个最简单的接口，
+ * 主要功能是允许BeanFactoryPostProcessor 例如PropertyPlaceHolderConfigure 能够检索并修改属性值和别的bean的元数据。
+ *
+ * 1.2 BeanDefinition的继承关系
+ * 父接口：
+ * AttributeAccessor, BeanMetadataElement 
+ * 子接口： 
+ * AnnotatedBeanDefinition 
+ * 子类: 
+ * AbstractBeanDefinition, AnnotatedGenericBeanDefinition, ChildBeanDefinition, GenericBeanDefinition, RootBeanDefinition, ScannedGenericBeanDefinition
+ *
+ * 
+ * 其中，AttributeAccessor接口定义了最基本的对任意对象的元数据的修改或者获取，主要方法有：
+ *
+ * String[] attributeNames() 
+ * Object getAttribute(String name) 
+ * boolean hasAttribute(String name) 
+ * Object removeAttribute(String name) 
+ * void setAttribute(String name, Object value) 
+ * BeanMetadataElement接口提供了一个getResource()方法,用来传输一个可配置的源对象。
  *
  * @author Juergen Hoeller
  * @author Rob Harrop

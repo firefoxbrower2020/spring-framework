@@ -24,6 +24,7 @@ import org.springframework.lang.Nullable;
  * 传送配置源对象的超级接口。定义了唯一的方法：Object getSource()
  * Bean元对象持有的配置元素可以通过 #getSource() 方法来获取
  *
+ * BeanMetadataElement接口提供了一个getResource()方法,用来传输一个可配置的源对象。
  * @author Juergen Hoeller
  * @since 2.0
  */

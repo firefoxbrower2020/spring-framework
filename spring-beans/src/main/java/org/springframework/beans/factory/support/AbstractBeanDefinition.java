@@ -38,14 +38,12 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Base class for concrete, full-fledged {@link BeanDefinition} classes,
- * factoring out common properties of {@link GenericBeanDefinition},
- * {@link RootBeanDefinition}, and {@link ChildBeanDefinition}.
  *
- * <p>The autowire constants match the ones defined in the
- * {@link org.springframework.beans.factory.config.AutowireCapableBeanFactory}
- * interface.
- *
+ BeanDefinition的抽象类AbstractBeanDefinition
+ 其中，BeanMetadataAttributeAccessor接口既实现了BeanMetadataElement接口提供的getResource()方法
+ 也提供了AttributeAccessorSupport 针对属性的增删改查，如上AttributeAccessor的方法。
+
+ bean definition实现类ChildBeanDefinition, GenericBeanDefinition, RootBeanDefinition
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @author Rob Harrop
