@@ -31,17 +31,17 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringValueResolver;
 
 /**
- * Configuration interface to be implemented by most bean factories. Provides
- * facilities to configure a bean factory, in addition to the bean factory
- * client methods in the {@link org.springframework.beans.factory.BeanFactory}
- * interface.
- *
- * <p>This bean factory interface is not meant to be used in normal application
- * code: Stick to {@link org.springframework.beans.factory.BeanFactory} or
- * {@link org.springframework.beans.factory.ListableBeanFactory} for typical
- * needs. This extended interface is just meant to allow for framework-internal
- * plug'n'play and for special access to bean factory configuration methods.
- *
+ ConfigurableBeanFactory：将会被大部分beanFactory实现的配置接口
+
+
+ Scope：ConfigurableBeanFactory使用的策略接口，代表了bean实例所在的目标域。我们来从ConfigurableBeanFactory来看Scope的使用情况：
+
+ String SCOPE_SINGLETON = "singleton";
+ String SCOPE_PROTOTYPE = "prototype";
+ void registerScope(String scopeName, Scope scope);
+ String[] getRegisteredScopeNames();
+ Scope getRegisteredScope(String scopeName);
+ 从上述代码中我们可以得知，默认有两种策略，singleton 单例即只有一个bean实例；prototype 原型即多个bean实例。如果想增加scope，可以通过registerScope来注册新的scope。
  * @author Juergen Hoeller
  * @since 03.11.2003
  * @see org.springframework.beans.factory.BeanFactory

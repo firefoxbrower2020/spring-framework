@@ -40,18 +40,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.ReflectionUtils;
 
 /**
- * Simple template superclass for {@link FactoryBean} implementations that
- * creates a singleton or a prototype object, depending on a flag.
- *
- * <p>If the "singleton" flag is {@code true} (the default),
- * this class will create the object that it creates exactly once
- * on initialization and subsequently return said singleton instance
- * on all calls to the {@link #getObject()} method.
- *
- * <p>Else, this class will create a new instance every time the
- * {@link #getObject()} method is invoked. Subclasses are responsible
- * for implementing the abstract {@link #createInstance()} template
- * method to actually create the object(s) to expose.
+ AbstractFactoryBean<T>：实现了FactoryBean的简单模板超类，它根据标志来决定是创建一个单例还是一个prototype对象
  *
  * @author Juergen Hoeller
  * @author Keith Donald

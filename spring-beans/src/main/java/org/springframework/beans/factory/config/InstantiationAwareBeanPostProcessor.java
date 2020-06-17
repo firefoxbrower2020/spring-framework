@@ -23,26 +23,16 @@ import org.springframework.beans.PropertyValues;
 import org.springframework.lang.Nullable;
 
 /**
- * Subinterface of {@link BeanPostProcessor} that adds a before-instantiation callback,
- * and a callback after instantiation but before explicit properties are set or
- * autowiring occurs.
- *
- * <p>Typically used to suppress default instantiation for specific target beans,
- * for example to create proxies with special TargetSources (pooling targets,
- * lazily initializing targets, etc), or to implement additional injection strategies
- * such as field injection.
- *
- * <p><b>NOTE:</b> This interface is a special purpose interface, mainly for
- * internal use within the framework. It is recommended to implement the plain
- * {@link BeanPostProcessor} interface as far as possible, or to derive from
- * {@link InstantiationAwareBeanPostProcessorAdapter} in order to be shielded
- * from extensions to this interface.
+ InstantiationAwareBeanPostProcessor：BeanPostProcessor的子接口，它增加了一个初始化前回调方法，
+ 还有一个在初始化后但显式设置属性或者自动绑定发生前的回调方法。
+
+ Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException;
+ boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException;
+ PropertyValues postProcessPropertyValues(PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName)throws BeansException;
  *
  * @author Juergen Hoeller
  * @author Rod Johnson
  * @since 1.2
- * @see org.springframework.aop.framework.autoproxy.AbstractAutoProxyCreator#setCustomTargetSourceCreators
- * @see org.springframework.aop.framework.autoproxy.target.LazyInitTargetSourceCreator
  */
 public interface InstantiationAwareBeanPostProcessor extends BeanPostProcessor {
 

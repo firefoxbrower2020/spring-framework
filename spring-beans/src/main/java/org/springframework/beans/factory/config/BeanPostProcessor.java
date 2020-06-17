@@ -20,18 +20,10 @@ import org.springframework.beans.BeansException;
 import org.springframework.lang.Nullable;
 
 /**
- * Factory hook that allows for custom modification of new bean instances,
- * e.g. checking for marker interfaces or wrapping them with proxies.
- *
- * <p>ApplicationContexts can autodetect BeanPostProcessor beans in their
- * bean definitions and apply them to any beans subsequently created.
- * Plain bean factories allow for programmatic registration of post-processors,
- * applying to all beans created through this factory.
- *
- * <p>Typically, post-processors that populate beans via marker interfaces
- * or the like will implement {@link #postProcessBeforeInitialization},
- * while post-processors that wrap beans with proxies will normally
- * implement {@link #postProcessAfterInitialization}.
+ BeanPostProcessor：允许对一个新的bean实例进行定制修改的工厂钩子。
+
+ Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException;
+ Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException;
  *
  * @author Juergen Hoeller
  * @since 10.10.2003

@@ -19,10 +19,8 @@ package org.springframework.beans.factory.config;
 import org.springframework.beans.BeansException;
 
 /**
- * Subinterface of {@link BeanPostProcessor} that adds a before-destruction callback.
- *
- * <p>The typical usage will be to invoke custom destruction callbacks on
- * specific bean types, matching corresponding initialization callbacks.
+ DestructionAwareBeanPostProcessor：BeanPostProcessor的子接口，它增加了一个销毁前回调方法。
+ void postProcessBeforeDestruction(Object bean, String beanName) throws BeansException;
  *
  * @author Juergen Hoeller
  * @since 1.0.1

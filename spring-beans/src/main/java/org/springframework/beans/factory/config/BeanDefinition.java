@@ -48,6 +48,8 @@ import org.springframework.lang.Nullable;
  * void setAttribute(String name, Object value) 
  * BeanMetadataElement接口提供了一个getResource()方法,用来传输一个可配置的源对象。
  *
+ *
+ BeanDefinition；一个bean实例的描述，它含有属性值，构造参数值。它的实现子类还提供更多的信息。
  * @author Juergen Hoeller
  * @author Rob Harrop
  * @since 19.03.2004
