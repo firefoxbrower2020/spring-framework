@@ -22,7 +22,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Representation of an import that has been processed during the parsing process.
+ ImportDefinition：在解析进程中，代表一个import已经被处理
  *
  * @author Juergen Hoeller
  * @since 2.0

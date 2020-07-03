@@ -21,14 +21,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Class that models an arbitrary location in a {@link Resource resource}.
- *
- * <p>Typically used to track the location of problematic or erroneous
- * metadata in XML configuration files. For example, a
- * {@link #getSource() source} location might be 'The bean defined on
- * line 76 of beans.properties has an invalid Class'; another source might
- * be the actual DOM Element from a parsed XML {@link org.w3c.dom.Document};
- * or the source object might simply be {@code null}.
+ Location：模型接口，一个资源位置的模型
  *
  * @author Rob Harrop
  * @since 2.0

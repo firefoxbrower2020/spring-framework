@@ -22,8 +22,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.lang.Nullable;
 
 /**
- * Simple {@link ProblemReporter} implementation that exhibits fail-fast
- * behavior when errors are encountered.
+ FailFastProblemReporter：ProblemReporter接口的简单实现，当遇到错误发生时展示fail-fast行为
  *
  * <p>The first error encountered results in a {@link BeanDefinitionParsingException}
  * being thrown.

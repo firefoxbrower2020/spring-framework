@@ -21,9 +21,8 @@ import java.util.LinkedList;
 import org.springframework.lang.Nullable;
 
 /**
- * Simple {@link LinkedList}-based structure for tracking the logical position during
- * a parsing process. {@link Entry entries} are added to the LinkedList at
- * each point during the parse phase in a reader-specific manner.
+ ParseState.Entry：ParseState的入口标识接口 
+ ParseState：在解析进程中作为一个简单的基于栈结构的追踪逻辑位置类
  *
  * <p>Calling {@link #toString()} will render a tree-style view of the current logical
  * position in the parse phase. This representation is intended for use in

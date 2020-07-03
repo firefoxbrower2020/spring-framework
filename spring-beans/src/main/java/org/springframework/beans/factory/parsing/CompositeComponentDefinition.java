@@ -23,9 +23,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * {@link ComponentDefinition} implementation that holds one or more nested
- * {@link ComponentDefinition} instances, aggregating them into a named group
- * of components.
+ CompositeComponentDefinition：保存了一个或者多个内嵌ComponentDefinition实例的ComponentDefinition实现，它把这些ComponentDefinition实例聚合成具有命名的组
  *
  * @author Juergen Hoeller
  * @since 2.0.1

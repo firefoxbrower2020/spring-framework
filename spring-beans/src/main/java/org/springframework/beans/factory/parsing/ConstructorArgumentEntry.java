@@ -19,8 +19,7 @@ package org.springframework.beans.factory.parsing;
 import org.springframework.util.Assert;
 
 /**
- * {@link ParseState} entry representing a (possibly indexed)
- * constructor argument.
+ ConstructorArgumentEntry：代表了构造参数
  *
  * @author Rob Harrop
  * @author Juergen Hoeller

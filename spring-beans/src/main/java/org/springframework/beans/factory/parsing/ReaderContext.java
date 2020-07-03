@@ -20,8 +20,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;
 
 /**
- * Context that gets passed along a bean definition reading process,
- * encapsulating all relevant configuration as well as state.
+ ReaderContext：bean definition读取进程中传递的一个Context，封装了所有相关的配置，包括状态
  *
  * @author Rob Harrop
  * @author Juergen Hoeller

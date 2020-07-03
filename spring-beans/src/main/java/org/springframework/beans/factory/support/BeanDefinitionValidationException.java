@@ -19,7 +19,7 @@ package org.springframework.beans.factory.support;
 import org.springframework.beans.FatalBeanException;
 
 /**
- * Exception thrown when the validation of a bean definition failed.
+ BeanDefinitionValidationException：一个bean definition验证失败时抛出异常的异常类
  *
  * @author Juergen Hoeller
  * @since 21.11.2003

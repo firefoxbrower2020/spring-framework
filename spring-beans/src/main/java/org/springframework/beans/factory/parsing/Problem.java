@@ -20,8 +20,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Represents a problem with a bean definition configuration.
- * Mainly serves as common argument passed into a {@link ProblemReporter}.
+ Problem：代表了一个beanDefinition配置问题
  *
  * <p>May indicate a potentially fatal problem (an error) or just a warning.
  *
