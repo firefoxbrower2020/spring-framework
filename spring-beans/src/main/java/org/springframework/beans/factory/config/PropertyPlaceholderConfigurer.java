@@ -28,9 +28,7 @@ import org.springframework.util.PropertyPlaceholderHelper.PlaceholderResolver;
 import org.springframework.util.StringValueResolver;
 
 /**
- * {@link PlaceholderConfigurerSupport} subclass that resolves ${...} placeholders against
- * {@link #setLocation local} {@link #setProperties properties} and/or system properties
- * and environment variables.
+ PropertyPlaceholderConfigurer：PlaceholderConfigurerSupport的子类，它解析本地属性或者系统属性或者环境变量定义的占位符(以${}描述)。
  *
  * <p>As of Spring 3.1, {@link org.springframework.context.support.PropertySourcesPlaceholderConfigurer
  * PropertySourcesPlaceholderConfigurer} should be used preferentially over this implementation; it is

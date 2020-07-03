@@ -21,13 +21,7 @@ import org.springframework.beans.factory.FactoryBeanNotInitializedException;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link FactoryBean} which returns a value which is the result of a static or instance
- * method invocation. For most use cases it is better to just use the container's
- * built-in factory method support for the same purpose, since that is smarter at
- * converting arguments. This factory bean is still useful though when you need to
- * call a method which doesn't return any value (for example, a static class method
- * to force some sort of initialization to happen). This use case is not supported
- * by factory methods, since a return value is needed to obtain the bean instance.
+ MethodInvokingFactoryBean：一个有返回值的工厂bean，它返回触发一个静态或者实例的方法的结果
  *
  * <p>Note that as it is expected to be used mostly for accessing factory methods,
  * this factory by default operates in a <b>singleton</b> fashion. The first request

@@ -31,26 +31,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link FactoryBean} which retrieves a static or non-static field value.
- *
- * <p>Typically used for retrieving public static final constants. Usage example:
- *
- * <pre class="code">
- * // standard definition for exposing a static field, specifying the "staticField" property
- * &lt;bean id="myField" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean"&gt;
- *   &lt;property name="staticField" value="java.sql.Connection.TRANSACTION_SERIALIZABLE"/&gt;
- * &lt;/bean&gt;
- *
- * // convenience version that specifies a static field pattern as bean name
- * &lt;bean id="java.sql.Connection.TRANSACTION_SERIALIZABLE"
- *       class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean"/&gt;
- * </pre>
- *
- * <p>If you are using Spring 2.0, you can also use the following style of configuration for
- * public static fields.
- *
- * <pre class="code">&lt;util:constant static-field="java.sql.Connection.TRANSACTION_SERIALIZABLE"/&gt;</pre>
- *
+ FieldRetrievingFactoryBean：检索静态或者非静态Field的值的工厂bean
  * @author Juergen Hoeller
  * @since 1.1
  * @see #setStaticField

@@ -28,16 +28,8 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * Simple {@link BeanFactoryPostProcessor} implementation that registers
- * custom {@link Scope Scope(s)} with the containing {@link ConfigurableBeanFactory}.
- *
- * <p>Will register all of the supplied {@link #setScopes(java.util.Map) scopes}
- * with the {@link ConfigurableListableBeanFactory} that is passed to the
- * {@link #postProcessBeanFactory(ConfigurableListableBeanFactory)} method.
- *
- * <p>This class allows for <i>declarative</i> registration of custom scopes.
- * Alternatively, consider implementing a custom {@link BeanFactoryPostProcessor}
- * that calls {@link ConfigurableBeanFactory#registerScope} programmatically.
+ CustomScopeConfigurer：BeanFactoryPostProcessor的简单实现，给自定义Scope的注册提供了便利的方法，
+ 上面提到ConfigurableBeanFactory提供了Scope的注册
  *
  * @author Juergen Hoeller
  * @author Rick Evans

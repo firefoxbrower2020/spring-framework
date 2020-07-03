@@ -29,15 +29,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 
 /**
- * {@link BeanFactoryPostProcessor} implementation that allows for convenient
- * registration of custom {@link PropertyEditor property editors}.
- *
- * <p>In case you want to register {@link PropertyEditor} instances,
- * the recommended usage as of Spring 2.0 is to use custom
- * {@link PropertyEditorRegistrar} implementations that in turn register any
- * desired editor instances on a given
- * {@link org.springframework.beans.PropertyEditorRegistry registry}. Each
- * PropertyEditorRegistrar can register any number of custom editors.
+ CustomEditorConfigurer：继承自BeanFactoryPostProcessor，给自定义属性编辑器的注册提供了便利的方法
  *
  * <pre class="code">
  * &lt;bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer"&gt;

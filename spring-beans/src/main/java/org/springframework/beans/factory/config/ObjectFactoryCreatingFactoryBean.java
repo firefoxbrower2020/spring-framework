@@ -25,9 +25,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * A {@link org.springframework.beans.factory.FactoryBean} implementation that
- * returns a value which is an {@link org.springframework.beans.factory.ObjectFactory}
- * that in turn returns a bean sourced from a {@link org.springframework.beans.factory.BeanFactory}.
+ ObjectFactoryCreatingFactoryBean：一个有返回值的工厂bean，它返回ObjectFactory
  *
  * <p>As such, this may be used to avoid having a client object directly calling
  * {@link org.springframework.beans.factory.BeanFactory#getBean(String)} to get

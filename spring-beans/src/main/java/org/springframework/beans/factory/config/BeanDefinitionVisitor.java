@@ -30,9 +30,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringValueResolver;
 
 /**
- * Visitor class for traversing {@link BeanDefinition} objects, in particular
- * the property values and constructor argument values contained in them,
- * resolving bean metadata values.
+ * BeanDefinitionVisitor：遍历BeanDefinition对象的参观者类，特别是也遍历bean中的属性值和构造参数值，解析bean的元数据值
  *
  * <p>Used by {@link PropertyPlaceholderConfigurer} to parse all String values
  * contained in a BeanDefinition, resolving any placeholders found.

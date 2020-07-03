@@ -36,11 +36,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * A {@link FactoryBean} implementation that takes an interface which must have one or more
- * methods with the signatures {@code MyType xxx()} or {@code MyType xxx(MyIdType id)}
- * (typically, {@code MyService getService()} or {@code MyService getService(String id)})
- * and creates a dynamic proxy which implements that interface, delegating to an
- * underlying {@link org.springframework.beans.factory.BeanFactory}.
+ ServiceLocatorFactoryBean：继承自FactoryBean，在beanFactory中创建一个动态代理，来代理一个具有一个或者多个服务或者类型的接口
  *
  * <p>Such service locators permit the decoupling of calling code from
  * the {@link org.springframework.beans.factory.BeanFactory} API, by using an

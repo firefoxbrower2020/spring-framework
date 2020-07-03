@@ -28,9 +28,7 @@ import org.springframework.core.io.support.PropertiesLoaderSupport;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Allows for configuration of individual bean property values from a property resource,
- * i.e. a properties file. Useful for custom config files targeted at system
- * administrators that override bean properties configured in the application context.
+ PropertyResourceConfigurer：支持从一个属性资源中对单个bean的属性值进行配置
  *
  * <p>Two concrete implementations are provided in the distribution:
  * <ul>

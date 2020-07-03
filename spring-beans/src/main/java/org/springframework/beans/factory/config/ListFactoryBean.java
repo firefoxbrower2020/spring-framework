@@ -25,8 +25,7 @@ import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
 
 /**
- * Simple factory for shared List instances. Allows for central setup
- * of Lists via the "list" element in XML bean definitions.
+ * ListFactoryBean：共享一组(list)实例的简单工厂bean
  *
  * @author Juergen Hoeller
  * @since 09.12.2003

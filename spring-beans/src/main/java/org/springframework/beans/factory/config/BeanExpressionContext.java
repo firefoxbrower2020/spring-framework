@@ -20,7 +20,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Context object for evaluating an expression within a bean definition.
+ * BeanExpressionContext：计算一个BeanDefinition内部的表达式的容器对象.
  *
  * @author Juergen Hoeller
  * @since 3.0

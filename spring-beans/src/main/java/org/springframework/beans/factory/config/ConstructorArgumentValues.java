@@ -32,10 +32,9 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Holder for constructor argument values, typically as part of a bean definition.
- *
- * <p>Supports values for a specific index in the constructor argument list
- * as well as for generic argument matches by type.
+ * ConstructorArgumentValues: 保存构造方法的参数值，特别是作为Beandefinition的一部分
+ * 
+ * ConstructorArgumentValues.ValueHolder：保存构造方法的一个参数值
  *
  * @author Juergen Hoeller
  * @since 09.11.2003

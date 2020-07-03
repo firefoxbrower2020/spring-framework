@@ -32,7 +32,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link FactoryBean} that evaluates a property path on a given target object.
+ PropertyPathFactoryBean：通过给定目标对象计算属性路径的工厂bean。
  *
  * <p>The target object can be specified directly or via a bean name.
  *

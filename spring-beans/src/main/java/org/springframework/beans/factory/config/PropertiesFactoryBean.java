@@ -25,9 +25,7 @@ import org.springframework.core.io.support.PropertiesLoaderSupport;
 import org.springframework.lang.Nullable;
 
 /**
- * Allows for making a properties file from a classpath location available
- * as Properties instance in a bean factory. Can be used to populate
- * any bean property of type Properties via a bean reference.
+ PropertiesFactoryBean：它支持从classpath位置的文件中读取属性实例的工厂bean
  *
  * <p>Supports loading from a properties file and/or setting local properties
  * on this FactoryBean. The created Properties instance will be merged from

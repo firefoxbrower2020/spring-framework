@@ -25,9 +25,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * A {@link org.springframework.beans.factory.FactoryBean} implementation that
- * returns a value which is a JSR-330 {@link javax.inject.Provider} that in turn
- * returns a bean sourced from a {@link org.springframework.beans.factory.BeanFactory}.
+ ProviderCreatingFactoryBean：返回一个JSR-330 Provider的工厂bean，JSR-330 Provider反过来从beanFactory返回一个bean资源。
  *
  * <p>This is basically a JSR-330 compliant variant of Spring's good old
  * {@link ObjectFactoryCreatingFactoryBean}. It can be used for traditional

@@ -24,10 +24,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringValueResolver;
 
 /**
- * Abstract base class for property resource configurers that resolve placeholders
- * in bean definition property values. Implementations <em>pull</em> values from a
- * properties file or other {@linkplain org.springframework.core.env.PropertySource
- * property source} into bean definitions.
+ PlaceholderConfigurerSupport：属性资源配置器的抽象基类，它解析BeanDefinition中属性值的占位符
  *
  * <p>The default placeholder syntax follows the Ant / Log4J / JSP EL style:
  *

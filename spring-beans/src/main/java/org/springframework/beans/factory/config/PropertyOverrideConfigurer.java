@@ -27,8 +27,7 @@ import org.springframework.beans.PropertyValue;
 import org.springframework.beans.factory.BeanInitializationException;
 
 /**
- * Property resource configurer that overrides bean property values in an application
- * context definition. It <i>pushes</i> values from a properties file into bean definitions.
+ PropertyOverrideConfigurer：属性资源配置器，它支持在applicationContext中重写一个bean的属性值
  *
  * <p>Configuration lines are expected to be of the following form:
  *

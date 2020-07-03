@@ -25,8 +25,7 @@ import org.springframework.core.ResolvableType;
 import org.springframework.lang.Nullable;
 
 /**
- * Simple factory for shared Set instances. Allows for central setup
- * of Sets via the "set" element in XML bean definitions.
+ SetFactoryBean;共享set实例的简单工厂bean
  *
  * @author Juergen Hoeller
  * @since 09.12.2003

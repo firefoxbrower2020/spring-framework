@@ -15,7 +15,6 @@
  */
 
 package org.springframework.beans.factory.config;
-
 import org.springframework.beans.BeanMetadataElement;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.lang.Nullable;
@@ -24,12 +23,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Holder for a BeanDefinition with name and aliases.
- * Can be registered as a placeholder for an inner bean.
- *
- * <p>Can also be used for programmatic registration of inner bean
- * definitions. If you don't care about BeanNameAware and the like,
- * registering RootBeanDefinition or ChildBeanDefinition is good enough.
+ * BeanDefinitionHolder：使用名称或者别名来保存BeanDefinition
  *
  * @author Juergen Hoeller
  * @since 1.0.2
@@ -52,7 +46,7 @@ public class BeanDefinitionHolder implements BeanMetadataElement {
 	/**
 	 * 别名集合
 	 */
-	@Nullable
+	@Nullable 
 	private final String[] aliases;
 
 
