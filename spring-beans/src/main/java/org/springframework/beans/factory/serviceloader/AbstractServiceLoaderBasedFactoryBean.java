@@ -25,8 +25,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * Abstract base class for FactoryBeans operating on the
- * JDK 1.6 {@link java.util.ServiceLoader} facility.
+ AbstractServiceLoaderBasedFactoryBean：FactoryBean的抽象基类，它是操作JDK1.6 ServiceLoader的基础工具
  *
  * @author Juergen Hoeller
  * @since 2.5
