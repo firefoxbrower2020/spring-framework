@@ -20,10 +20,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
 /**
- * Simple default implementation of the {@link BeanWiringInfoResolver} interface,
- * looking for a bean with the same name as the fully-qualified class name.
- * This matches the default name of the bean in a Spring XML file if the
- * bean tag's "id" attribute is not used.
+ ClassNameBeanWiringInfoResolver：BeanWiringInfoResolver的简单默认实现，查找一个和全限定名同名的bean的名称。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

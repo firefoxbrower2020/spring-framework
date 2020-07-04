@@ -21,9 +21,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Holder for bean wiring metadata information about a particular class. Used in
- * conjunction with the {@link org.springframework.beans.factory.annotation.Configurable}
- * annotation and the AspectJ {@code AnnotationBeanConfigurerAspect}.
+ BeanWiringInfo：保存特定类的bean的绑定元数据信息。
  *
  * @author Rod Johnson
  * @author Juergen Hoeller
