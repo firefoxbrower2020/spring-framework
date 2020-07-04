@@ -40,10 +40,7 @@ import org.springframework.util.PropertiesPersister;
 import org.springframework.util.StringUtils;
 
 /**
- * Bean definition reader for a simple properties format.
- *
- * <p>Provides bean definition registration methods for Map/Properties and
- * ResourceBundle. Typically applied to a DefaultListableBeanFactory.
+ PropertiesBeanDefinitionReader：简单属性格式的BeanDefinitionReader。
  *
  * <p><b>Example:</b>
  *

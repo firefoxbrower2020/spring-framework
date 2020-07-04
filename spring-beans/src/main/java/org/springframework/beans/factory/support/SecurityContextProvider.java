@@ -19,7 +19,7 @@ package org.springframework.beans.factory.support;
 import java.security.AccessControlContext;
 
 /**
- * Provider of the security context of the code running inside the bean factory.
+ SecurityContextProvider：运行在beanFactory中的安全Context的提供者
  *
  * @author Costin Leau
  * @since 3.0

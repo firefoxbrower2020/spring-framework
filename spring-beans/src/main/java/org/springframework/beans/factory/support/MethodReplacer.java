@@ -19,9 +19,7 @@ package org.springframework.beans.factory.support;
 import java.lang.reflect.Method;
 
 /**
- * Interface to be implemented by classes that can reimplement any method
- * on an IoC-managed object: the <b>Method Injection</b> form of
- * Dependency Injection.
+ MethodReplacer：一个可以重新定义Ioc容器对象的所有方法的接口：方法注入是依赖注入的一种形式
  *
  * <p>Such methods may be (but need not be) abstract, in which case the
  * container will create a concrete subclass to instantiate.

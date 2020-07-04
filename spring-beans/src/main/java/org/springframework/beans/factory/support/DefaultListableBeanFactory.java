@@ -83,6 +83,12 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * 
+ * 
+ *
+ DefaultListableBeanFactory：ListableBeanFactory接口和BeanDefinitionRegistry接口的默认实现：基于beanDefinition对象的一个成熟的beanFactory
+ * 
+ * 
  * DefaultListableBeanFactory，ConfigurableListableBeanFactory（其实就是BeanFactory）和
  * BeanDefinitionRegistry接口的默认实现：一个基于BeanDefinition元数据的完整bean工厂
  *

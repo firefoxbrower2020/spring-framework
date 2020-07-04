@@ -34,6 +34,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
+ *
+ RootBeanDefinition：根BeanDefinition，表示在运行时期的spring BeanFactory中一个合并的BeanDefinition
  RootBeanDefinition
  
  一个RootBeanDefinition定义表明它是一个可合并的bean definition：即在spring beanFactory运行期间，可以返回一个特定的bean。

@@ -22,7 +22,7 @@ import java.security.AccessController;
 import org.springframework.lang.Nullable;
 
 /**
- * Simple {@link SecurityContextProvider} implementation.
+ SimpleSecurityContextProvider：SecurityContextProvider的简单扩展。
  *
  * @author Costin Leau
  * @since 3.0

@@ -41,10 +41,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * Default object instantiation strategy for use in BeanFactories.
- *
- * <p>Uses CGLIB to generate subclasses dynamically if methods need to be
- * overridden by the container to implement <em>Method Injection</em>.
+ CglibSubclassingInstantiationStrategy：BeanFactory默认对象初始化策略
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

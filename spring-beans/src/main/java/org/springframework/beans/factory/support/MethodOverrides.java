@@ -24,8 +24,7 @@ import java.util.Set;
 import org.springframework.lang.Nullable;
 
 /**
- * Set of method overrides, determining which, if any, methods on a
- * managed object the Spring IoC container will override at runtime.
+ MethodOverrides：一组方法重写，决定了在运行时期对spring ioc容器管理对象的重写方法(如果存在的话)
  *
  * <p>The currently supported {@link MethodOverride} variants are
  * {@link LookupOverride} and {@link ReplaceOverride}.

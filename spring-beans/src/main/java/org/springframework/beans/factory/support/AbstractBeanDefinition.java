@@ -38,7 +38,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
- *
+ AbstractBeanDefinition：具体、成熟BeanDefinition类的基类，构造出RootBeanDefinition和ChildBeanDefinition的通用属性
  BeanDefinition的抽象类AbstractBeanDefinition
  其中，BeanMetadataAttributeAccessor接口既实现了BeanMetadataElement接口提供的getResource()方法
  也提供了AttributeAccessorSupport 针对属性的增删改查，如上AttributeAccessor的方法。

@@ -24,8 +24,7 @@ import org.springframework.beans.Mergeable;
 import org.springframework.lang.Nullable;
 
 /**
- * Tag collection class used to hold managed Map values, which may
- * include runtime bean references (to be resolved into bean objects).
+ ManagedMap<K,V> 集合类，用来保存它所管理的array值，它可以包含运行时期的bean引用(将被解析为bean对象) 
  *
  * @author Juergen Hoeller
  * @author Rob Harrop

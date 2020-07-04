@@ -23,8 +23,7 @@ import org.springframework.beans.Mergeable;
 import org.springframework.lang.Nullable;
 
 /**
- * Tag class which represents a Spring-managed {@link Properties} instance
- * that supports merging of parent/child definitions.
+ ManagedProperties：表示一个spring管理的属性实例，它支持父/子 definition的合并。
  *
  * @author Rob Harrop
  * @author Juergen Hoeller

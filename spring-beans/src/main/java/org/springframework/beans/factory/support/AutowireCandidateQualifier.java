@@ -20,9 +20,7 @@ import org.springframework.beans.BeanMetadataAttributeAccessor;
 import org.springframework.util.Assert;
 
 /**
- * Qualifier for resolving autowire candidates. A bean definition that
- * includes one or more such qualifiers enables fine-grained matching
- * against annotations on a field or parameter to be autowired.
+ AutowireCandidateQualifier : AutowireCandidateQualifier解析自动绑定备选项Qualifier
  *
  * @author Mark Fisher
  * @author Juergen Hoeller

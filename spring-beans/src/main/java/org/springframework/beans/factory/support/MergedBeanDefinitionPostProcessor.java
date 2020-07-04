@@ -19,6 +19,8 @@ package org.springframework.beans.factory.support;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
 /**
+ MergedBeanDefinitionPostProcessor：后处理回调接口，在运行时合并bean definition。
+ * 
  * BeanPostProcessor 是一个可以定制修改一个新的bean实例的工厂钩子，例如：检查marker接口或者使用代理包装他们。
  * applicationContext 可以在他们的bean容器中自动识别BeanPostProcessor bean，
  * 并将它们应用到接下来所创建的bean。一般的bean factory通过编程来注册Post-processor，并将它们应用到整个bean factory创建bean的过程中。

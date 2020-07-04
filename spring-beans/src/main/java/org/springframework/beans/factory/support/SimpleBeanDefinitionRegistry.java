@@ -27,6 +27,10 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
+ *
+ *
+ SimpleBeanDefinitionRegistry：BeanDefinitionRegistry接口的简单实现
+ 
  * SimpleBeanDefinitionRegistry是BeanDefinitionRegistry一个简单的实现，它还继承
  * SimpleAliasRegistry（AliasRegistry的简单实现），它仅仅只提供注册表功能，无工厂功能
  *

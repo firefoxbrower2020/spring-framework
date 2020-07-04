@@ -24,8 +24,7 @@ import org.springframework.beans.Mergeable;
 import org.springframework.lang.Nullable;
 
 /**
- * Tag collection class used to hold managed List elements, which may
- * include runtime bean references (to be resolved into bean objects).
+ ManagedList<E> 集合类，用来保存它所管理的List元素，它可以包含运行时期的bean引用(将被解析为bean对象). 
  *
  * @author Rod Johnson
  * @author Rob Harrop

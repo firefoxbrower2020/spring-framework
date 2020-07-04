@@ -32,10 +32,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
- * Simple object instantiation strategy for use in a BeanFactory.
- *
- * <p>Does not support Method Injection, although it provides hooks for subclasses
- * to override to add Method Injection support, for example by overriding methods.
+ SimpleInstantiationStrategy：BeanFactory中简单对象的初始化策略
  *
  * @author Rod Johnson
  * @author Juergen Hoeller

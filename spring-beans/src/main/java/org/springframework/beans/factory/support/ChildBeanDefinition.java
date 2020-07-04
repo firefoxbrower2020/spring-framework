@@ -22,6 +22,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
+ ChildBeanDefinition：从父类继承各种设置的bean的beanDefinition
  * 　ChildBeanDefinition从父类继承构造参数值，属性值并可以重写父类的方法，同时也可以增加新的属性或者方法。
     (类同于java类的继承关系)。若指定初始化方法，销毁方法或者静态工厂方法，　
  　  ChildBeanDefinition将重写相应父类的设置。

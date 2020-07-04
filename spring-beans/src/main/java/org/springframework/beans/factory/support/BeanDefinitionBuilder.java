@@ -24,10 +24,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 
 /**
- * Programmatic means of constructing
- * {@link org.springframework.beans.factory.config.BeanDefinition BeanDefinitions}
- * using the builder pattern. Intended primarily for use when implementing Spring 2.0
- * {@link org.springframework.beans.factory.xml.NamespaceHandler NamespaceHandlers}.
+ BeanDefinitionBuilder：使用建造者模式构建BeanDefinition的编程方法
  *
  * @author Rod Johnson
  * @author Rob Harrop

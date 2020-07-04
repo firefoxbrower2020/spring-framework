@@ -38,10 +38,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * Generic registry for shared bean instances, implementing the
- * {@link org.springframework.beans.factory.config.SingletonBeanRegistry}.
- * Allows for registering singleton instances that should be shared
- * for all callers of the registry, to be obtained via bean name.
+ DefaultSingletonBeanRegistry：共享bean实例的通用注册，实现了SingletonBeanRegistry
  *
  * <p>Also supports registration of
  * {@link org.springframework.beans.factory.DisposableBean} instances,

@@ -21,8 +21,7 @@ import org.springframework.beans.factory.config.DependencyDescriptor;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link AutowireCandidateResolver} implementation to use when no annotation
- * support is available. This implementation checks the bean definition only.
+ SimpleAutowireCandidateResolver：继承自AutowireCandidateResolver，当出现不支持的注解时使用。 
  *
  * @author Mark Fisher
  * @author Juergen Hoeller

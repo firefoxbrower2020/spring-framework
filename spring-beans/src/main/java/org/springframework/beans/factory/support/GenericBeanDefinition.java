@@ -20,6 +20,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.lang.Nullable;
 
 /**
+ GenericBeanDefinition：通用BeanDefinition是一站式的标准bean Definition
  *  GenericBeanDefinition主要用来测试AnnotatedBeanDefinition上的操作的，
  *  例如：在spring的component扫描支持的实现中（默认实现类是ScannedGenericBeanDefinition，
  *  它同样实现了AnnotatedBeanDefinition接口

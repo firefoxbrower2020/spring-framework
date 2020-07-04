@@ -20,8 +20,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * Tag collection class used to hold managed array elements, which may
- * include runtime bean references (to be resolved into bean objects).
+ ManagedArray：集合类，用来保存它所管理的array元素，它可以包含运行时期的bean引用(将被解析为bean对象)
  *
  * @author Juergen Hoeller
  * @since 3.0

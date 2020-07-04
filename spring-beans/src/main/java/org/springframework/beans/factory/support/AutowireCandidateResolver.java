@@ -21,9 +21,8 @@ import org.springframework.beans.factory.config.DependencyDescriptor;
 import org.springframework.lang.Nullable;
 
 /**
- * Strategy interface for determining whether a specific bean definition
- * qualifies as an autowire candidate for a specific dependency.
- *
+ AutowireCandidateResolver：策略接口，对特定的依赖，
+ 这个接口决定一个特定的bean definition是否满足作为自动绑定的备选项
  * @author Juergen Hoeller
  * @author Mark Fisher
  * @since 2.5
