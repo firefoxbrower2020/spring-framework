@@ -22,7 +22,7 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 
 /**
- * Strategy interface for loading an XML {@link Document}.
+ DocumentLoader：加载xml文件的策略接口。
  * 定义从资源文件加载到转换为Document的功能
  *
  * @author Rob Harrop

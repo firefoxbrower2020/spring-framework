@@ -29,9 +29,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.lang.Nullable;
 
 /**
- * {@link EntityResolver} implementation for the Spring beans DTD,
- * to load the DTD from the Spring class path (or JAR file).
- *
+ BeansDtdResolver：spring bean dtd解析器EntityResolver的实现，用来从classpath或者jar文件加载dtd
  * 实现EntityResolver接口，Spring Bean dtd解码器，用来从classpath或者jar文件中加载dtd
  *
  * <p>Fetches "spring-beans.dtd" from the class path resource

@@ -24,8 +24,7 @@ import org.springframework.beans.factory.config.BeanDefinitionHolder;
 import org.springframework.lang.Nullable;
 
 /**
- * Base interface used by the {@link DefaultBeanDefinitionDocumentReader}
- * for handling custom namespaces in a Spring XML configuration file.
+ NamespaceHandler：DefaultBeanDefinitionDocumentReader用来处理在spring xml配置文件中的自定义命名空间的基础接口。
  *
  * <p>Implementations are expected to return implementations of the
  * {@link BeanDefinitionParser} interface for custom top-level tags and

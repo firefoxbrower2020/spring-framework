@@ -31,7 +31,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.xml.XmlValidationModeDetector;
 
 /**
- * Spring's default {@link DocumentLoader} implementation.
+ DefaultDocumentLoader：spring 的DocumentLoader默认实现
  *
  * <p>Simply loads {@link Document documents} using the standard JAXP-configured
  * XML parser. If you want to change the {@link DocumentBuilder} that is used to

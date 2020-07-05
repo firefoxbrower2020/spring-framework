@@ -28,9 +28,7 @@ import org.springframework.beans.factory.config.BeanDefinitionHolder;
 import org.springframework.lang.Nullable;
 
 /**
- * Support class for implementing custom {@link NamespaceHandler NamespaceHandlers}.
- * Parsing and decorating of individual {@link Node Nodes} is done via {@link BeanDefinitionParser}
- * and {@link BeanDefinitionDecorator} strategy interfaces, respectively.
+ NamespaceHandlerSupport：支持实现自定义的NamespaceHandler
  *
  * <p>Provides the {@link #registerBeanDefinitionParser} and {@link #registerBeanDefinitionDecorator}
  * methods for registering a {@link BeanDefinitionParser} or {@link BeanDefinitionDecorator}
@@ -42,7 +40,7 @@ import org.springframework.lang.Nullable;
  * @see #registerBeanDefinitionParser(String, BeanDefinitionParser)
  * @see #registerBeanDefinitionDecorator(String, BeanDefinitionDecorator)
  */
-public abstract class NamespaceHandlerSupport implements NamespaceHandler {
+public abstract class  NamespaceHandlerSupport implements NamespaceHandler {
 
 	/**
 	 * Stores the {@link BeanDefinitionParser} implementations keyed by the

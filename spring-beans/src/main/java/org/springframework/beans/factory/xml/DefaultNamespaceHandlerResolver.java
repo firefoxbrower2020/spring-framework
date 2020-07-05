@@ -33,9 +33,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.CollectionUtils;
 
 /**
- * Default implementation of the {@link NamespaceHandlerResolver} interface.
- * Resolves namespace URIs to implementation classes based on the mappings
- * contained in mapping file.
+ DefaultNamespaceHandlerResolver：NamespaceHandlerResolver接口的默认实现
  *
  * <p>By default, this implementation looks for the mapping file at
  * {@code META-INF/spring.handlers}, but this can be changed using the

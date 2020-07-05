@@ -35,8 +35,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
 /**
- * {@link EntityResolver} implementation that attempts to resolve schema URLs into
- * local {@link ClassPathResource classpath resources} using a set of mappings files.
+ PluggableSchemaResolver：继承自EntityResolver，使用一系列map文件将schema url解析到本地classpath资源
  *
  * <p>By default, this class will look for mapping files in the classpath using the
  * pattern: {@code META-INF/spring.schemas} allowing for multiple files to exist on

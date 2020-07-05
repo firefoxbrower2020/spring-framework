@@ -34,8 +34,7 @@ import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.util.StringUtils;
 
 /**
- * {@link NamespaceHandler} for the {@code util} namespace.
- *
+ UtilNamespaceHandler：工具命名空间的NamespaceHandler
  * @author Rob Harrop
  * @author Juergen Hoeller
  * @since 2.0

@@ -21,8 +21,7 @@ import org.w3c.dom.Node;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
 
 /**
- * Interface used by the {@link DefaultBeanDefinitionDocumentReader}
- * to handle custom, nested (directly under a {@code <bean>}) tags.
+ BeanDefinitionDecorator：DefaultBeanDefinitionDocumentReader用来处理自定义的，内嵌的<bean>标签的接口 
  *
  * <p>Decoration may also occur based on custom attributes applied to the
  * {@code <bean>} tag. Implementations are free to turn the metadata in the

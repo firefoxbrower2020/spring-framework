@@ -26,9 +26,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
- * Convenient base class for when there exists a one-to-one mapping
- * between attribute names on the element that is to be parsed and
- * the property names on the {@link Class} being configured.
+ AbstractSimpleBeanDefinitionParser：AbstractBeanDefinitionParser的简单实现，当将要解析元素的属性名和配置类的属性名一一对应的时候，可以用到该类
  *
  * <p>Extend this parser class when you want to create a single
  * bean definition from a relatively simple custom XML element. The

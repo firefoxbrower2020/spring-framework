@@ -28,10 +28,7 @@ import org.springframework.core.Conventions;
 import org.springframework.lang.Nullable;
 
 /**
- * Simple {@code NamespaceHandler} implementation that maps custom attributes
- * directly through to bean properties. An important point to note is that this
- * {@code NamespaceHandler} does not have a corresponding schema since there
- * is no way to know in advance all possible attribute names.
+ SimplePropertyNamespaceHandler：简单NamespaceHandler实现，它将自定义属性直接映射到bean属性
  *
  * <p>An example of the usage of this {@code NamespaceHandler} is shown below:
  *

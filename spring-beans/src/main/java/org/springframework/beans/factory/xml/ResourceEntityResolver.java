@@ -31,10 +31,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.lang.Nullable;
 
 /**
- * {@code EntityResolver} implementation that tries to resolve entity references
- * through a {@link org.springframework.core.io.ResourceLoader} (usually,
- * relative to the resource base of an {@code ApplicationContext}), if applicable.
- * Extends {@link DelegatingEntityResolver} to also provide DTD and XSD lookup.
+ ResourceEntityResolver：继承自EntityResolver，通过ResourceLoader来解析实体的引用
  *
  * <p>Allows to use standard XML entities to include XML snippets into an
  * application context definition, for example to split a large XML file

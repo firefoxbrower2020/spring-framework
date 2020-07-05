@@ -26,8 +26,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 /**
- * {@link EntityResolver} implementation that delegates to a {@link BeansDtdResolver}
- * and a {@link PluggableSchemaResolver} for DTDs and XML schemas, respectively.
+ DelegatingEntityResolver：EntityResolver的实现，分别代理了dtd的BeansDtdResolver和xml schemas的 PluggableSchemaResolver。
  *
  * 实现EntityResolver接口，分别代理dtd的BeansDtdResolver和xml schemas的PluggableSchemaResolver
  *

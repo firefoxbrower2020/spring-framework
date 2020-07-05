@@ -29,10 +29,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
 /**
- * Abstract {@link BeanDefinitionParser} implementation providing
- * a number of convenience methods and a
- * {@link AbstractBeanDefinitionParser#parseInternal template method}
- * that subclasses must override to provide the actual parsing logic.
+ AbstractBeanDefinitionParser：BeanDefinitionParser的抽象实现，提供了许多便利方法和模板方法，模板方法需要在子类进行重写来提供具体的逻辑实现。
  *
  * <p>Use this {@link BeanDefinitionParser} implementation when you want
  * to parse some arbitrarily complex XML into one or more
